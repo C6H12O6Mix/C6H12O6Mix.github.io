@@ -339,6 +339,12 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Mr.Tang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">0k</span>
 </div>
 
 <!--
@@ -503,6 +509,25 @@ $(document).ready(function() {
         
       });
     }
+  </script>
+
+
+ 
+
+  <script>
+    var OriginTitile = document.title;
+    var titleTime;
+    document.addEventListener("visibilitychange", function() {
+      if (document.hidden) {
+        document.title = "(つェ⊂)我藏好了哦~" + OriginTitile;
+        clearTimeout(titleTime);
+      } else {
+        document.title = "(*´∇｀*) 被你发现啦~" + OriginTitile;
+        titleTime = setTimeout(function() {
+          document.title = OriginTitile;
+        }, 2000);
+      }
+    });
   </script>
 
 </body>
