@@ -23,19 +23,22 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="欧几里得算法1. 基础1.1 欧几里得算法(a, b) &#x3D; (a - kb, b)，k $\epsilon$  $\Zeta$ 当 a &gt; b 时，令 k &#x3D; $\lfloor {\frac{a}{b}} \rfloor$，我们得到 (a, b) &#x3D; (a - b$\lfloor {\frac{a}{b}} \rfloor$, b) &#x3D; (a mod b, b) &#x3D; (b, a mod b)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2022/01/12/hello-world/index.html">
+<meta property="og:title" content="EuclideanAlgorithm">
+<meta property="og:url" content="http://example.com/2022/02/23/EuclideanAlgorithm/index.html">
 <meta property="og:site_name" content="C6H12O6Mix">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="欧几里得算法1. 基础1.1 欧几里得算法(a, b) &#x3D; (a - kb, b)，k $\epsilon$  $\Zeta$ 当 a &gt; b 时，令 k &#x3D; $\lfloor {\frac{a}{b}} \rfloor$，我们得到 (a, b) &#x3D; (a - b$\lfloor {\frac{a}{b}} \rfloor$, b) &#x3D; (a mod b, b) &#x3D; (b, a mod b)">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-01-12T03:02:19.897Z">
-<meta property="article:modified_time" content="2022-01-12T03:02:19.897Z">
+<meta property="article:published_time" content="2022-02-23T08:26:03.000Z">
+<meta property="article:modified_time" content="2022-02-23T08:26:03.777Z">
 <meta property="article:author" content="Mr.Tang">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/01/12/hello-world/">
+<link rel="canonical" href="http://example.com/2022/02/23/EuclideanAlgorithm/">
 
 
 <script id="page-configurations">
@@ -48,7 +51,7 @@
   };
 </script>
 
-  <title>Hello World | C6H12O6Mix</title>
+  <title>EuclideanAlgorithm | C6H12O6Mix</title>
   
 
 
@@ -207,7 +210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/12/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/23/EuclideanAlgorithm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -220,7 +223,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          EuclideanAlgorithm
         </h1>
 
         <div class="post-meta">
@@ -230,11 +233,20 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-01-12 11:02:19" itemprop="dateCreated datePublished" datetime="2022-01-12T11:02:19+08:00">2022-01-12</time>
+              <time title="创建时间：2022-02-23 16:26:03" itemprop="dateCreated datePublished" datetime="2022-02-23T16:26:03+08:00">2022-02-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
             </span>
 
           
-            <span id="/2022/01/12/hello-world/" class="post-meta-item leancloud_visitors" data-flag-title="Hello World" title="阅读次数">
+            <span id="/2022/02/23/EuclideanAlgorithm/" class="post-meta-item leancloud_visitors" data-flag-title="EuclideanAlgorithm" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -256,8 +268,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2022/01/12/hello-world/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/01/12/hello-world/" itemprop="commentCount"></span>
+    <a title="valine" href="/2022/02/23/EuclideanAlgorithm/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/02/23/EuclideanAlgorithm/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -267,7 +279,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>367</span>
+              <span>1.2k</span>
             </span>
 
         </div>
@@ -279,25 +291,47 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h2><h3 id="1-基础"><a href="#1-基础" class="headerlink" title="1. 基础"></a>1. 基础</h3><h4 id="1-1-欧几里得算法"><a href="#1-1-欧几里得算法" class="headerlink" title="1.1 欧几里得算法"></a>1.1 欧几里得算法</h4><p>(a, b) = (a - kb, b)，k $\epsilon$  $\Zeta$</p>
+<p>当 a &gt; b 时，令 k = $\lfloor {\frac{a}{b}} \rfloor$，我们得到 (a, b) = (a - b$\lfloor {\frac{a}{b}} \rfloor$, b) = (a mod b, b) = (b, a mod b)，知道 b = 0，此时 (a, 0) = a 。</p>
+<h4 id="1-2-欧几里得算法实现"><a href="#1-2-欧几里得算法实现" class="headerlink" title="1.2 欧几里得算法实现"></a>1.2 欧几里得算法实现</h4><figure class="highlight python"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 欧几里得算法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gcd</span>(<span class="params">m, n</span>):</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> m</span><br><span class="line">    <span class="keyword">return</span> gcd(n, m % n)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="2-拓展"><a href="#2-拓展" class="headerlink" title="2. 拓展"></a>2. 拓展</h3><h4 id="2-1-拓展欧几里得算法"><a href="#2-1-拓展欧几里得算法" class="headerlink" title="2.1 拓展欧几里得算法"></a>2.1 拓展欧几里得算法</h4><p>欧几里得算法的递归核心为：(a, b) = (b, a mod b) = (b ,a - b$\lfloor {\frac{a}{b}} \rfloor$) ，根据此核心可以得出：</p>
+<p>存在 x, y, x’, y’，四个整数使得 ax + by = (a, b) 且 bx‘ + (a - b$\lfloor {\frac{a}{b}} \rfloor$)y’  =  (b ,a - b$\lfloor {\frac{a}{b}} \rfloor$)，整理得：a(x - y’) + b(y - (x’ - $\lfloor {\frac{a}{b}} \rfloor$y’)) = 0。要使此等式恒成立，于是：</p>
+<p>x = y‘ 且 有 y = x’ - $\lfloor {\frac{a}{b}} \rfloor$y’</p>
+<p>求解 x，y 可以通过递归运算，而边界条件为：当 b = 0 时，(a , 0) 对应 x = 1, y = 0 。</p>
+<h4 id="2-2-拓展欧几里得算法实现"><a href="#2-2-拓展欧几里得算法实现" class="headerlink" title="2.2 拓展欧几里得算法实现"></a>2.2 拓展欧几里得算法实现</h4><figure class="highlight python"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全局变量</span></span><br><span class="line">x = <span class="number">1</span></span><br><span class="line">y = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 拓展欧几里得算法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exgcd</span>(<span class="params">a, b</span>):</span></span><br><span class="line">    <span class="keyword">global</span> x</span><br><span class="line">    <span class="keyword">global</span> y</span><br><span class="line">    <span class="keyword">if</span> b == <span class="number">0</span>:</span><br><span class="line">        x = <span class="number">1</span></span><br><span class="line">        y = <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> a</span><br><span class="line">    re = exgcd(b, a % b)</span><br><span class="line">    temp = x</span><br><span class="line">    x = y</span><br><span class="line">    y = temp - a / b * y</span><br><span class="line">    <span class="keyword">return</span> re</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h4 id="2-3-拓展欧几里得算法实现丢番图方程"><a href="#2-3-拓展欧几里得算法实现丢番图方程" class="headerlink" title="2.3 拓展欧几里得算法实现丢番图方程"></a>2.3 拓展欧几里得算法实现丢番图方程</h4><p>丢番图方程 ax + by = c，系数 a, b, c 为任意整数。</p>
+<p>丢番图方程有解的充要条件为 c % gcd(a, b) == 0 。</p>
+<p>代码实现的话与拓展欧几里德算法基本相同， 不同的地方就是最后的结果 x 和 y 均要乘上倍数 c / gcd (a, b) 。</p>
+<h3 id="3-脑筋急转弯"><a href="#3-脑筋急转弯" class="headerlink" title="3. 脑筋急转弯"></a>3. 脑筋急转弯</h3><h4 id="3-1-问题"><a href="#3-1-问题" class="headerlink" title="3.1 问题"></a>3.1 问题</h4><p>在走廊上有n个带锁的门，从1到n一次编号。最初所有的门都是关着的。我们从门前一次经过n此，每一次都从1号门开始。在第i次经过时（i = 1，2．．．n）我们改变i的整数倍号锁的状态：也就是如果们是关着的，就打开它；如果门是打开的，就关上它。。在最后以此经过后，那些门是打开的？那些门是关上的？有多少打开的门？</p>
+<h4 id="3-2-代码实现"><a href="#3-2-代码实现" class="headerlink" title="3.2 代码实现"></a>3.2 代码实现</h4><figure class="highlight python"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lockDoor</span>():</span></span><br><span class="line">    N = <span class="number">100</span></span><br><span class="line">    <span class="comment"># True 表示门处于关闭状态</span></span><br><span class="line">    lst = [<span class="literal">True</span>] * N</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">        lst[i:: i + <span class="number">1</span>] = [<span class="keyword">not</span> n <span class="keyword">for</span> n <span class="keyword">in</span> lst[i:: i + <span class="number">1</span>]]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;若有 &#x27;</span> + <span class="built_in">str</span>(N) + <span class="string">&#x27; 扇门，则有 &#x27;</span> + <span class="built_in">str</span>(lst.count(<span class="literal">True</span>)) + <span class="string">&#x27; 扇门关闭&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+
+
+
+
+
+
 
     </div>
 
     
     
     
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2022\02\03\MarkdownAdvance\" rel="bookmark">MarkdownAdvance</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2022\01\14\MarkdownBasic\" rel="bookmark">MarkdownBasic</a></div>
+    </li>
+  </ul>
+
         <div class="reward-container">
   <div>您的支持是我创作的最大动力</div>
   <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
@@ -327,7 +361,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2022/01/12/hello-world/" title="Hello World">http://example.com/2022/01/12/hello-world/</a>
+    <a href="http://example.com/2022/02/23/EuclideanAlgorithm/" title="EuclideanAlgorithm">http://example.com/2022/02/23/EuclideanAlgorithm/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -366,17 +400,22 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+              <a href="/tags/python/" rel="tag"># python</a>
+          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2022/01/14/MarkdownBasic/" rel="next" title="MarkdownBasic">
-      MarkdownBasic <i class="fa fa-chevron-right"></i>
+    <a href="/2022/02/03/MarkdownAdvance/" rel="prev" title="MarkdownAdvance">
+      <i class="fa fa-chevron-left"></i> MarkdownAdvance
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -444,7 +483,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">欧几里得算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9F%BA%E7%A1%80"><span class="nav-number">1.1.</span> <span class="nav-text">1. 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 欧几里得算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 欧几里得算法实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%8B%93%E5%B1%95"><span class="nav-number">1.2.</span> <span class="nav-text">2. 拓展</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 拓展欧几里得算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 拓展欧几里得算法实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E4%B8%A2%E7%95%AA%E5%9B%BE%E6%96%B9%E7%A8%8B"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 拓展欧几里得算法实现丢番图方程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%84%91%E7%AD%8B%E6%80%A5%E8%BD%AC%E5%BC%AF"><span class="nav-number">1.3.</span> <span class="nav-text">3. 脑筋急转弯</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 代码实现</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

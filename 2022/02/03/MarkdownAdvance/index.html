@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Markdown 任务列表在 Markdown 文件中，在 “ 无序列表 -,+,* “ 后面使用 「中括号 []」 声明复选框。在中括号中写入 x ，便可实现选中效果。 示例： 代码块12345678910111213141516#### 学生管理系统- [ ] ** 前端开发开发**  责任人：小甲- [ ] ** 服务端开发**  责任人：小乙- [ ] **数据库设计**    责任人：小">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MarkdownAdvance">
+<meta property="og:url" content="http://example.com/2022/02/03/MarkdownAdvance/index.html">
+<meta property="og:site_name" content="C6H12O6Mix">
+<meta property="og:description" content="Markdown 任务列表在 Markdown 文件中，在 “ 无序列表 -,+,* “ 后面使用 「中括号 []」 声明复选框。在中括号中写入 x ，便可实现选中效果。 示例： 代码块12345678910111213141516#### 学生管理系统- [ ] ** 前端开发开发**  责任人：小甲- [ ] ** 服务端开发**  责任人：小乙- [ ] **数据库设计**    责任人：小">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/01/14/6VytTBK57zi1rlY.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/14/qWahsJP6VoDUGvB.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/14/eJaAXL4QcVPgduS.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/14/FN6AKktO2xLJyza.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/15/BPNehmj3yQZXRqM.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/15/9V5wMQv3pamK21W.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/15/ehH1I3tmBJio45k.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/15/MtQTcJ7slX2Rob8.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/15/Cuq5Xx9NB78o6DW.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/15/143dh6utHDFpYk8.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/16/9Z5g7dcF1faOGql.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/16/Ueto2Gb8d3qjA4T.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/16/wQS94iAdJxkuzIo.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/16/MTnW2JGEFvhtH5g.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/16/J9PjVEpMCndK2bR.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/16/xJFrQGMPq2DvUhN.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/16/FqT3uPgDYI7fA4o.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/16/nX3FpheT1E4vLlP.png">
+<meta property="og:image" content="c:/Users/Mr.tang/AppData/Roaming/Typora/typora-user-images/image-20220117093715932.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/17/ZiVP9xKsnz2ypQL.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/17/P5n6kAxVqI2CZbJ.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/17/O2rt86EPi3S7se9.png">
+<meta property="og:image" content="c:/Users/Mr.tang/AppData/Roaming/Typora/typora-user-images/image-20220117104713858.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/17/YEAuPZL8Rz2ODjy.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/17/B2YvX57zfbPoJtu.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/17/V9pM8NSRFIWOw46.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/17/umDc7hoen3tkJOx.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/19/DUe9dcg216XlKCI.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/02/zVEKhnmgHW7jwsf.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/02/nbHifKEqYec9Zhp.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/02/MuG42ldrmnzDeVa.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/02/xZyCOtFPAjGMIif.png">
+<meta property="og:image" content="c:/Users/Mr.tang/AppData/Roaming/Typora/typora-user-images/image-20220202214412263.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/03/vJLwB9iA1VF8o3O.png">
+<meta property="article:published_time" content="2022-02-03T01:46:12.461Z">
+<meta property="article:modified_time" content="2022-02-03T01:46:40.451Z">
+<meta property="article:author" content="Mr.Tang">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="代码语法">
+<meta property="article:tag" content="Markdown">
+<meta property="article:tag" content="进阶">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/01/14/6VytTBK57zi1rlY.png">
+
+<link rel="canonical" href="http://example.com/2022/02/03/MarkdownAdvance/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>MarkdownAdvance | C6H12O6Mix</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="C6H12O6Mix" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <a target="_blank" rel="noopener" href="https://c6h12o6mix.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">C6H12O6Mix</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="download fa-fw"></i>resources</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="calendar fa-fw"></i>日程表</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/03/MarkdownAdvance/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Mr.Tang">
+      <meta itemprop="description" content="Nothing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="C6H12O6Mix">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MarkdownAdvance
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-02-03 09:46:12 / 修改时间：09:46:40" itemprop="dateCreated datePublished" datetime="2022-02-03T09:46:12+08:00">2022-02-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Markdown/" itemprop="url" rel="index"><span itemprop="name">Markdown</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2022/02/03/MarkdownAdvance/" class="post-meta-item leancloud_visitors" data-flag-title="MarkdownAdvance" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/02/03/MarkdownAdvance/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/02/03/MarkdownAdvance/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>10k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Markdown-任务列表"><a href="#Markdown-任务列表" class="headerlink" title="Markdown 任务列表"></a>Markdown 任务列表</h2><p>在 Markdown 文件中，在 “ 无序列表 <code>-,+,*</code> “ 后面使用 <code>「中括号 []」</code> 声明复选框。在中括号中写入 <code>x</code> ，便可实现选中效果。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">####</span> 学生管理系统</span><br><span class="line">- [ ] ** 前端开发开发**</span><br><span class="line">  责任人：小甲</span><br><span class="line">- [ ] ** 服务端开发**</span><br><span class="line">  责任人：小乙</span><br><span class="line">- [ ] **数据库设计**  </span><br><span class="line">  责任人：小丙  </span><br><span class="line">  任务描述：搭建 Mysql 数据库环境；设计数据表；数据库设计满足三范式。  </span><br><span class="line">  预计完成时间 5 天</span><br><span class="line">  - [x] 搭建数据库环境</span><br><span class="line">  - [x] 整理数据表名、主要字段</span><br><span class="line">  - [x] 设计 E-R 图</span><br><span class="line">  - [x] 使数据表符合范式要求</span><br><span class="line">  - [ ] 应用到数据库中</span><br><span class="line">  - [ ] 整理此部分文档笔记</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/14/6VytTBK57zi1rlY.png"></p>
+<h2 id="Markdown-特殊符号"><a href="#Markdown-特殊符号" class="headerlink" title="Markdown 特殊符号"></a>Markdown 特殊符号</h2><p>在 Markdown 文件中，在特殊符号前面使用「反斜杠 <code>\</code>」，可以实现特殊符号转义，以便将特殊符号输出到文本中。</p>
+<p><strong>下表列出Markdown常见特殊符号：</strong></p>
+<img src="https://s2.loli.net/2022/01/14/qWahsJP6VoDUGvB.png" style="zoom:80%;" />
+
+
+
+
+
+<h2 id="Markdown-超链接及图片"><a href="#Markdown-超链接及图片" class="headerlink" title="Markdown 超链接及图片"></a>Markdown 超链接及图片</h2><p>在 Markdown 文件中，使用 「中括号 <code>[label]()</code>」 声明超链接。</p>
+<h3 id="1-超链接"><a href="#1-超链接" class="headerlink" title="1. 超链接"></a>1. 超链接</h3><h4 id="1-1-超链接细节声明"><a href="#1-1-超链接细节声明" class="headerlink" title="1.1 超链接细节声明"></a>1.1 超链接细节声明</h4><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">####</span> 声明超链接的细节</span><br><span class="line"></span><br><span class="line">点击下面的连接将跳转到[C6H12O6Mix](https://c6h12o6mix.github.io)首页</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/14/eJaAXL4QcVPgduS.png"></p>
+<h4 id="1-2-超链接细节全局声明"><a href="#1-2-超链接细节全局声明" class="headerlink" title="1.2 超链接细节全局声明"></a>1.2 超链接细节全局声明</h4><figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">####</span> 超链接细节全局声明</span><br><span class="line"><span class="params">#####</span> 方式一</span><br><span class="line">点击下面的连接将跳转到[C6H12O6Mix][blog<span class="built_in">_</span>index]首页</span><br><span class="line"></span><br><span class="line">[blog<span class="built_in">_</span>index]: https://c6h12o6mix.github.io</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/14/FN6AKktO2xLJyza.png"></p>
+<h3 id="2-图片"><a href="#2-图片" class="headerlink" title="2. 图片"></a>2. 图片</h3><h4 id="2-1-图片的行内定义"><a href="#2-1-图片的行内定义" class="headerlink" title="2.1 图片的行内定义"></a>2.1 图片的行内定义</h4><figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">####</span> 插入一张图片</span><br><span class="line"></span><br><span class="line">图片前的文字。</span><br><span class="line"></span><br><span class="line">![](链接)</span><br><span class="line"></span><br><span class="line">图片后的文字</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-图片的全局声明"><a href="#2-2-图片的全局声明" class="headerlink" title="2.2 图片的全局声明"></a>2.2 图片的全局声明</h4><figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">####</span> 使用全局声明方式插入图片</span><br><span class="line"></span><br><span class="line">![][img1]</span><br><span class="line">![][img2]</span><br><span class="line">![][img1]</span><br><span class="line">![][img2]</span><br><span class="line"></span><br><span class="line">[img1]: 链接</span><br><span class="line">[img2]: 链接</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="Markdown-表格"><a href="#Markdown-表格" class="headerlink" title="Markdown 表格"></a>Markdown 表格</h2><p>表格通常作为一种布局形式，用于结构化的数据展示。</p>
+<ol>
+<li><p>Markdown 表格包含三个部分：表头、分割线、数据。</p>
+<ul>
+<li><strong>表头</strong> 用来对列名对象进行描述，也就是通常所说的列名；</li>
+<li><strong>数据</strong> 用来展示每行的具体内容，数据是表格的核心；</li>
+<li><strong>分割线</strong> 用来区分表头和数据，也是 Markdown 中表格定义的最基本语法要求。</li>
+</ul>
+</li>
+<li><p>Markdown 表格由 「竖线 <code>|</code>」、「减号 <code>-</code>」、「冒号 <code>:</code>」三种符号组成。</p>
+<ul>
+<li><strong>竖线</strong> 用来定义列，每两个竖线之间为一个单元格元素；</li>
+<li><strong>减号</strong> 用来定义分割线，也就是分割表头和数据体；</li>
+<li><strong>冒号</strong> 配合减号使用，用于定义列数据的对齐属性。</li>
+</ul>
+<p><strong>示例：</strong></p>
+</li>
+</ol>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">####</span> 小学生课程表</span><br><span class="line"></span><br><span class="line">| |周一|周二|周三|周四|周五|</span><br><span class="line">|--:|---|---|---|---|---|</span><br><span class="line">|**1**|数学|英语|数学|语文|品德|</span><br><span class="line">|**2**|美术|数学|品德|数学|语文|</span><br><span class="line">|**3**|品德|品德|语文|体育|数学|</span><br><span class="line">|**4**|语文|音乐|体育|品德|美术|</span><br><span class="line">|||||||</span><br><span class="line">|**5**|数学|英语|语文|数学|语文|</span><br><span class="line">|**6**|品德|数学|美术|劳动|活动|</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id=""><a href="#" class="headerlink" title=""></a><img src="https://s2.loli.net/2022/01/15/BPNehmj3yQZXRqM.png" style="zoom:80%;" /></h4><h2 id="Markdown-流程图"><a href="#Markdown-流程图" class="headerlink" title="Markdown 流程图"></a>Markdown 流程图</h2><p>Markdown 的原生语法不支持绘制图形，但通过 Mermaid 扩展，我们可以将一些格式化的文字渲染成我们需要的图形。</p>
+<p><a target="_blank" rel="noopener" href="https://mermaid-js.github.io/mermaid/#/">Mermaid</a> 是一个方便于 Markdown 文档撰写者通过文本方式生成图形的扩展工具。</p>
+<h3 id="1-基本流程图"><a href="#1-基本流程图" class="headerlink" title="1. 基本流程图"></a>1. 基本流程图</h3><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">graph TB</span><br><span class="line">    开始 --&gt; 结束</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/15/9V5wMQv3pamK21W.png"></p>
+<p><strong>注意事项：</strong></p>
+<p>若节点文本如下图显示不全</p>
+<p>可以通过快捷键’Ctrl’+’,’打开偏好设置-&gt;外观-&gt;打开相应的主题文件夹</p>
+<p>打开相应主题的’css’文件，例’github.css’，添加以下代码：</p>
+<figure class="highlight css"><figcaption><span>修改css代码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.md-require-zoom-fix</span> foreignObject &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: unset;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>graph 支持的方向：</strong></p>
+<img src="https://s2.loli.net/2022/01/15/ehH1I3tmBJio45k.png" style="zoom:80%;" />
+
+
+
+<h3 id="2-几何图形节点"><a href="#2-几何图形节点" class="headerlink" title="2. 几何图形节点"></a>2. 几何图形节点</h3><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">graph TD</span><br><span class="line">    方形节点[节点显示文本]</span><br><span class="line">    圆角形节点(节点显示文本)</span><br><span class="line">    圆形节点((节点显示文本))</span><br><span class="line">    非对称形节点&gt;节点显示文本]</span><br><span class="line">    菱形节点&#123;节点显示文本&#125;</span><br><span class="line">    六角形节点&#123;&#123;节点显示文本&#125;&#125;</span><br><span class="line">    右倾平行四边形[/节点显示文本/]</span><br><span class="line">    左倾平行四边形[<span class="keyword">\节</span>点显示文本<span class="keyword">\]</span></span><br><span class="line">    正向梯形[/节点显示文本<span class="keyword">\]</span></span><br><span class="line">    反向梯形[<span class="keyword">\节</span>点显示文本/]</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<img src="https://s2.loli.net/2022/01/15/MtQTcJ7slX2Rob8.png" style="zoom:80%;" />
+
+
+
+<h3 id="3-连接线"><a href="#3-连接线" class="headerlink" title="3. 连接线"></a>3. 连接线</h3><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">graph LR</span><br><span class="line">	<span class="comment">%% 基本连接线</span></span><br><span class="line">    A --&gt; B -- 带文字连接线 --&gt; A</span><br><span class="line">    <span class="comment">%% 无向连接线</span></span><br><span class="line">    C --- D -- 带文字连接线 --- C</span><br><span class="line">    <span class="comment">%% 点状连接线</span></span><br><span class="line">    E -.- F -. 带文字连接线 -.- E</span><br><span class="line">    <span class="comment">%% 粗实线连接线</span></span><br><span class="line">    G ==&gt; H == 带文字连接线 ==&gt; G</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/15/Cuq5Xx9NB78o6DW.png"></p>
+<h3 id="4-视图分组"><a href="#4-视图分组" class="headerlink" title="4. 视图分组"></a>4. 视图分组</h3><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    c1--&gt;a2</span><br><span class="line">    subgraph 第一组</span><br><span class="line">    a1--&gt;a2</span><br><span class="line">    end</span><br><span class="line">    subgraph 第二组</span><br><span class="line">    b1--&gt;b2</span><br><span class="line">    end</span><br><span class="line">    subgraph 第三组</span><br><span class="line">    c1--&gt;c2</span><br><span class="line">    end</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/15/143dh6utHDFpYk8.png"></p>
+<h3 id="5-使用场景——冒泡排序"><a href="#5-使用场景——冒泡排序" class="headerlink" title="5. 使用场景——冒泡排序"></a>5. 使用场景——冒泡排序</h3><figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">graph LR</span><br><span class="line">	执行1[i = 1]</span><br><span class="line">  	执行2[j = 0]</span><br><span class="line">  	执行3[i ++]</span><br><span class="line">  	执行4[&quot;a = arr[j], b = arr[j + 1]&quot;]</span><br><span class="line">  	执行5[交换 a, b]</span><br><span class="line">  	执行6[j ++]</span><br><span class="line">	判断1[&quot;i &lt; n&quot;]</span><br><span class="line">	判断2[&quot;j &lt; n - i&quot;]</span><br><span class="line">  	判断3[&quot;a &gt; b&quot;]</span><br><span class="line">  	开始 --&gt; 执行1</span><br><span class="line">  	执行1 --&gt; 判断1</span><br><span class="line">  	判断1 --Y--&gt; 执行2</span><br><span class="line">  	执行2 --&gt; 判断2</span><br><span class="line">  	判断2 --Y--&gt; 执行4</span><br><span class="line">  	判断2 --N--&gt; 执行3</span><br><span class="line">  	执行3 --&gt; 判断1</span><br><span class="line">  	执行4 --&gt; 判断3</span><br><span class="line">  	判断3 --N--&gt; 判断2</span><br><span class="line">  	判断3 --Y--&gt; 执行5</span><br><span class="line">  	执行5 --&gt; 执行6</span><br><span class="line"> 	执行6 --&gt; 判断2</span><br><span class="line">  	判断1 --N--&gt; 结束</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/16/9Z5g7dcF1faOGql.png"></p>
+<h2 id="Markdown-时序图"><a href="#Markdown-时序图" class="headerlink" title="Markdown 时序图"></a>Markdown 时序图</h2><h3 id="1-基本时序图"><a href="#1-基本时序图" class="headerlink" title="1. 基本时序图"></a>1. 基本时序图</h3><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">sequenceDiagram</span><br><span class="line">    李雷 -&gt;&gt; 韩梅梅: Hi LiLei, How do you do?</span><br><span class="line">    韩梅梅 --&gt;&gt; 李雷: How do you do!</span><br><span class="line">    <span class="comment">%% 别名形式定义对象</span></span><br><span class="line">    participant l as 李雷</span><br><span class="line">    participant h as 韩梅梅</span><br><span class="line">    l -&gt;&gt; h: I&#x27;m fine and you?</span><br><span class="line">    h --&gt;&gt; l: Me too!</span><br><span class="line">    <span class="comment">%% 可以通过+/-号实现聚焦</span></span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/16/Ueto2Gb8d3qjA4T.png"></p>
+<h3 id="2-连接线类型"><a href="#2-连接线类型" class="headerlink" title="2. 连接线类型"></a>2. 连接线类型</h3><p><img src="https://s2.loli.net/2022/01/16/wQS94iAdJxkuzIo.png"></p>
+<h3 id="3-添加笔记"><a href="#3-添加笔记" class="headerlink" title="3. 添加笔记"></a>3. 添加笔记</h3><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">sequenceDiagram</span><br><span class="line">	Note over 李雷,韩梅梅: Lessson 1</span><br><span class="line">    李雷 -&gt;&gt; 韩梅梅: Hi Hanmeimei, How do you do?</span><br><span class="line">    Note right of 韩梅梅: Dialog</span><br><span class="line">    韩梅梅 -&gt;&gt; 李雷: How do you do!</span><br><span class="line">```</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/01/16/MTnW2JGEFvhtH5g.png"></p>
+<h3 id="4-时序图的逻辑"><a href="#4-时序图的逻辑" class="headerlink" title="4. 时序图的逻辑"></a>4. 时序图的逻辑</h3><h4 id="4-1-循环"><a href="#4-1-循环" class="headerlink" title="4.1 循环"></a>4.1 循环</h4><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">sequenceDiagram</span><br><span class="line">    李雷 -&gt; 韩梅梅: Hello Hanmeimei, how are you?</span><br><span class="line">    loop 不停地说</span><br><span class="line">        韩梅梅 --&gt; 李雷: Great!</span><br><span class="line">    end</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/16/J9PjVEpMCndK2bR.png"></p>
+<h4 id="4-2-选择"><a href="#4-2-选择" class="headerlink" title="4.2 选择"></a>4.2 选择</h4><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">sequenceDiagram</span><br><span class="line">	participant l as 李雷</span><br><span class="line">    participant h as 韩梅梅</span><br><span class="line">    l -&gt;&gt; h: Hello Hanmeimei, Do you like orange?</span><br><span class="line">    alt Yes</span><br><span class="line">    h --&gt;&gt; l: Yes, I do.</span><br><span class="line">    else No</span><br><span class="line">    h --&gt;&gt; l: No, I don&#x27;t.</span><br><span class="line">    else neutral</span><br><span class="line">    h --&gt;&gt; l: Just so so.</span><br><span class="line">    end</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/16/xJFrQGMPq2DvUhN.png"></p>
+<h2 id="Markdown-类图"><a href="#Markdown-类图" class="headerlink" title="Markdown 类图"></a>Markdown 类图</h2><p>类是类图中的核心组成，类的成员包括属性和方法，以及一些扩展信息。在类图中，一个类实例由三层组成：</p>
+<ul>
+<li>类名称，在类图的最顶端；</li>
+<li>类属性，在类图的中间层；</li>
+<li>类方法，在类图的最下层。</li>
+</ul>
+<p>成员的作用域作为可选项，定义是在成员的开头，有以下四种：</p>
+<ul>
+<li><code>+</code> Public</li>
+<li><code>-</code> Private</li>
+<li><code>#</code> Protected</li>
+<li><code>~</code> Package/Internal</li>
+</ul>
+<h3 id="1-类成员的定义"><a href="#1-类成员的定义" class="headerlink" title="1. 类成员的定义"></a>1. 类成员的定义</h3><h4 id="1-1-通过冒号设置类成员"><a href="#1-1-通过冒号设置类成员" class="headerlink" title="1.1 通过冒号设置类成员"></a>1.1 通过冒号设置类成员</h4><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">classDiagram</span><br><span class="line">  class 银行账户</span><br><span class="line">  银行账户: +String 户主</span><br><span class="line">  银行账户: +BigDecimal 余额</span><br><span class="line">  <span class="comment">%% ()存放成员函数参数</span></span><br><span class="line">  <span class="comment">%% ()后可以增加数据类型描述，可以设置返回值</span></span><br><span class="line">  银行账户: +存(数量) bool</span><br><span class="line">  银行账户: +取(数量) int</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意事项：</strong> 如果需要定义抽象方法或静态方法，则只需要在括号后添加*或$符号即可：</p>
+<p>抽象方法被标为斜体，静态方法被标注了下划线.</p>
+<hr>
+<p><img src="https://s2.loli.net/2022/01/16/FqT3uPgDYI7fA4o.png"></p>
+<h4 id="1-2-通过大括号设置类成员"><a href="#1-2-通过大括号设置类成员" class="headerlink" title="1.2 通过大括号设置类成员"></a>1.2 通过大括号设置类成员</h4><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">classDiagram</span><br><span class="line">  class 银行账户 &#123;</span><br><span class="line">    +String 户主</span><br><span class="line">    +BigDecimal 余额</span><br><span class="line">    +存(数量) bool</span><br><span class="line">    +取(数量) int</span><br><span class="line">  &#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/16/nX3FpheT1E4vLlP.png"></p>
+<h3 id="2-类图的类间关系"><a href="#2-类图的类间关系" class="headerlink" title="2. 类图的类间关系"></a>2. 类图的类间关系</h3><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">classDiagram</span><br><span class="line">  classA --|&gt; classB : 继承</span><br><span class="line">  classC --* classD : 组成</span><br><span class="line">  classE --o classF : 集合</span><br><span class="line">  classG --&gt; classH : 关联</span><br><span class="line">  classI -- classJ : 实线连接</span><br><span class="line">  classK ..&gt; classL : 依赖</span><br><span class="line">  classM ..|&gt; classN : 实现</span><br><span class="line">  classO .. classP : 虚线连接</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="C:/Users/Mr.tang/AppData/Roaming/Typora/typora-user-images/image-20220117093715932.png"></p>
+<h3 id="3-实例数的表示："><a href="#3-实例数的表示：" class="headerlink" title="3. 实例数的表示："></a>3. 实例数的表示：</h3><p>类图中的 multiplicity 或 cardinality 表示链接到另一类一个实例的一个类的实例数。例如，一家公司将有一个或多位员工，但每位员工只为一家公司工作。</p>
+<p> 不同的实例数表示包括:</p>
+<ul>
+<li><p><code>1</code>——仅有 1</p>
+</li>
+<li><p><code>0..1</code> ——0或者1</p>
+</li>
+<li><p><code>1..* 1</code>——或者更多</p>
+</li>
+</ul>
+<ul>
+<li><code>*</code>——若干</li>
+</ul>
+<ul>
+<li><p><code>n</code>——n {n&gt;1}</p>
+</li>
+<li><p><code>0..n</code>——0 到 n {n&gt;1}</p>
+</li>
+<li><p><code>1..n</code>——1 到 n {n&gt;1}</p>
+</li>
+</ul>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">classDiagram</span><br><span class="line">    顾客 &quot;1&quot; --&gt; &quot;*&quot; 票据</span><br><span class="line">    学生 &quot;1&quot; --&gt; &quot;1..*&quot; 课程</span><br><span class="line">    银河 --&gt; &quot;many&quot; 星星 : 包含</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/17/ZiVP9xKsnz2ypQL.png"></p>
+<h3 id="4-类修饰符"><a href="#4-类修饰符" class="headerlink" title="4. 类修饰符"></a>4. 类修饰符</h3><p> 类的类型有以下四种，以<code>&lt;&lt;</code>和<code>&gt;&gt;</code>括起来.</p>
+<ul>
+<li><code>&lt;&lt;Interface&gt;&gt;</code> 接口类</li>
+<li><code>&lt;&lt;abstract&gt;&gt;</code> 抽象类</li>
+<li><code>&lt;&lt;Service&gt;&gt;</code> 服务类</li>
+<li><code>&lt;&lt;enumeration&gt;&gt;</code> 枚举类</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">classDiagram</span><br><span class="line">class 形状 &#123;</span><br><span class="line">    &lt;&lt;interface&gt;&gt;</span><br><span class="line">    定点数</span><br><span class="line">    绘制()</span><br><span class="line">&#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/17/P5n6kAxVqI2CZbJ.png"></p>
+<h2 id="Markdown-状态图"><a href="#Markdown-状态图" class="headerlink" title="Markdown 状态图"></a>Markdown 状态图</h2><h3 id="1-状态节点的声明"><a href="#1-状态节点的声明" class="headerlink" title="1. 状态节点的声明"></a>1. 状态节点的声明</h3><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">stateDiagram</span><br><span class="line">	<span class="comment">%% 方式一</span></span><br><span class="line">    state &quot;状态1描述性文字&quot; as state1</span><br><span class="line">    <span class="comment">%% 方式二</span></span><br><span class="line">    state2: 状态2的文字描述</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/17/O2rt86EPi3S7se9.png"></p>
+<h3 id="2-状态节点的转换"><a href="#2-状态节点的转换" class="headerlink" title="2. 状态节点的转换"></a>2. 状态节点的转换</h3><p>状态节点的转换可以用单向箭头表示转换，并可以通过 <code>(行内容):label</code> 的形式，为转换添加描述文本。</p>
+<p>状态图中有两个特殊的状态节点：开始节点和结束节点。如果需要在状态图中显示开始或结束节点，可以通过 <code>[*]</code> 方式声明。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">stateDiagram</span><br><span class="line">	[*] --&gt; 状态1</span><br><span class="line">    状态1 --&gt; 状态2: 咻~</span><br><span class="line">    状态2 --&gt; [*]</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="C:/Users/Mr.tang/AppData/Roaming/Typora/typora-user-images/image-20220117104713858.png"></p>
+<h3 id="3-状态节点的嵌套"><a href="#3-状态节点的嵌套" class="headerlink" title="3. 状态节点的嵌套"></a>3. 状态节点的嵌套</h3><h4 id="3-1-层级嵌套"><a href="#3-1-层级嵌套" class="headerlink" title="3.1 层级嵌套"></a>3.1 层级嵌套</h4><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">stateDiagram</span><br><span class="line">    [*] --&gt; 第一层状态节点</span><br><span class="line"></span><br><span class="line">    state 第一层状态节点 &#123;</span><br><span class="line">        [*] --&gt; 第二层</span><br><span class="line"></span><br><span class="line">        state 第二层 &#123;</span><br><span class="line">            [*] --&gt; 第二层</span><br><span class="line">            第二层 --&gt; 第三层</span><br><span class="line"></span><br><span class="line">            state 第三层 &#123;</span><br><span class="line">                [*] --&gt; 第三层</span><br><span class="line">                第三层 --&gt; [*]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/17/YEAuPZL8Rz2ODjy.png"></p>
+<h4 id="3-2-群组嵌套"><a href="#3-2-群组嵌套" class="headerlink" title="3.2 群组嵌套"></a>3.2 群组嵌套</h4><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">stateDiagram</span><br><span class="line">    [*] --&gt; 第一层</span><br><span class="line">    第一层 --&gt; 第二层</span><br><span class="line">    第一层 --&gt; 第三层</span><br><span class="line"></span><br><span class="line">    state 第一层 &#123;</span><br><span class="line">        [*] --&gt; 第一层子节点</span><br><span class="line">        第一层子节点 --&gt; [*]</span><br><span class="line">    &#125;</span><br><span class="line">    state 第二层 &#123;</span><br><span class="line">        [*] --&gt; 第二层子节点</span><br><span class="line">        第二层子节点 --&gt; [*]</span><br><span class="line">    &#125;</span><br><span class="line">    state 第三层 &#123;</span><br><span class="line">        [*] --&gt; 第三层子节点</span><br><span class="line">        第三层子节点 --&gt; [*]</span><br><span class="line">    &#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/17/B2YvX57zfbPoJtu.png"></p>
+<h3 id="4-状态节点的分支"><a href="#4-状态节点的分支" class="headerlink" title="4. 状态节点的分支"></a>4. 状态节点的分支</h3><p>使用 <code>&lt;&lt;fork&gt;&gt;</code> 描述分支，使用 <code>&lt;&lt;join&gt;&gt;</code> 描述聚合</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">stateDiagram</span><br><span class="line">    state 分支 &lt;&lt;fork&gt;&gt;</span><br><span class="line">      [*] --&gt; 分支</span><br><span class="line">      分支 --&gt; 分支2</span><br><span class="line">      分支 --&gt; 分支3</span><br><span class="line"></span><br><span class="line">      state 合并 &lt;&lt;join&gt;&gt;</span><br><span class="line">      分支2 --&gt; 合并</span><br><span class="line">      分支3 --&gt; 合并</span><br><span class="line">      合并 --&gt; 状态4</span><br><span class="line">      状态4 --&gt; [*]</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/17/V9pM8NSRFIWOw46.png"></p>
+<h3 id="5-状态节点的并行"><a href="#5-状态节点的并行" class="headerlink" title="5. 状态节点的并行"></a>5. 状态节点的并行</h3><p>对于一些同步完成的状态转换，我们可以用 <code>--</code> 符号声明并行效果</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">stateDiagram</span><br><span class="line">        [*] --&gt; 激活状态</span><br><span class="line"></span><br><span class="line">        state 激活状态 &#123;</span><br><span class="line">            [*] --&gt; NumLock关</span><br><span class="line">            NumLock关 --&gt; NumLock开 : 按下 NumLock 键</span><br><span class="line">            NumLock开 --&gt; NumLock关 : 按下 NumLock 键</span><br><span class="line">            --</span><br><span class="line">            [*] --&gt; CapsLock关</span><br><span class="line">            CapsLock关 --&gt; CapsLock开 : 按下 CapsLock 键</span><br><span class="line">            CapsLock开 --&gt; CapsLock关 : 按下 CapsLock 键</span><br><span class="line">            --</span><br><span class="line">            [*] --&gt; ScrollLock关</span><br><span class="line">            ScrollLock关 --&gt; ScrollLock开 : 按下 ScrollLock 键</span><br><span class="line">            ScrollLock开 --&gt; ScrollLock关 : 按下 ScrollLock 键</span><br><span class="line">        &#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/17/umDc7hoen3tkJOx.png"></p>
+<h3 id="6-为状态图添加备注"><a href="#6-为状态图添加备注" class="headerlink" title="6. 为状态图添加备注"></a>6. 为状态图添加备注</h3><p>在 Mermaid 语法中，使用 <code>note &lt;right|left&gt; of &lt;state ID&gt; 备注内容 end notes</code> 的方式，将备注添加到状态节点两侧</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">stateDiagram</span><br><span class="line">        状态1 : 描述将出现在右侧</span><br><span class="line">        note right of 状态1</span><br><span class="line">            这里添加描述内容</span><br><span class="line">        end note</span><br><span class="line">        状态1 --&gt; 状态2</span><br><span class="line">        note left of 状态2 : 在节点左侧添加描述</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/19/DUe9dcg216XlKCI.png"></p>
+<h2 id="Markdown-甘特图"><a href="#Markdown-甘特图" class="headerlink" title="Markdown 甘特图"></a>Markdown 甘特图</h2><p>甘特图一般由「标题」、「日期格式约定」、「分组及任务」三部分组成。</p>
+<h3 id="1-基本的甘特图"><a href="#1-基本的甘特图" class="headerlink" title="1. 基本的甘特图"></a>1. 基本的甘特图</h3><figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">gantt</span><br><span class="line">    title 基础甘特图</span><br><span class="line">    dateFormat  YYYY-MM-DD</span><br><span class="line">    section 分区1</span><br><span class="line">    任务1-1           :a1, 2014-01-01, 30d</span><br><span class="line">    任务1-2           :after a1  , 20d</span><br><span class="line">    section 分区2</span><br><span class="line">    任务2-1      :2014-01-12  , 12d</span><br><span class="line">    任务2-2      : 24d</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/02/02/zVEKhnmgHW7jwsf.png"></p>
+<h3 id="2-dateFormat-属性"><a href="#2-dateFormat-属性" class="headerlink" title="2. dateFormat 属性"></a>2. dateFormat 属性</h3><hr>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>取值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>YYYY</td>
+<td>2014</td>
+<td>4位数年</td>
+</tr>
+<tr>
+<td>YY</td>
+<td>14</td>
+<td>2位数年</td>
+</tr>
+<tr>
+<td>Q</td>
+<td>1…4</td>
+<td>季度数</td>
+</tr>
+<tr>
+<td>M/MM</td>
+<td>1…12</td>
+<td>月份数</td>
+</tr>
+<tr>
+<td>MMM/MMMM</td>
+<td>Junuary…Dec</td>
+<td>月份名称</td>
+</tr>
+<tr>
+<td>D/DD</td>
+<td>1…31</td>
+<td>月中天数</td>
+</tr>
+<tr>
+<td>Do</td>
+<td>1st…31st</td>
+<td>月中第几天</td>
+</tr>
+<tr>
+<td>DDD/DDDD</td>
+<td>1…365</td>
+<td>年中天数</td>
+</tr>
+<tr>
+<td>X</td>
+<td>2314343121.213</td>
+<td>Unix时间戳（秒）</td>
+</tr>
+<tr>
+<td>x</td>
+<td>2314343121213</td>
+<td>Unix时间戳（毫秒）</td>
+</tr>
+<tr>
+<td>H/HH</td>
+<td>0…23</td>
+<td>24小时制小时数</td>
+</tr>
+<tr>
+<td>h/hh</td>
+<td>1…12</td>
+<td>12小时制小时数</td>
+</tr>
+<tr>
+<td>a/A</td>
+<td>am、pm</td>
+<td>上午、下午</td>
+</tr>
+<tr>
+<td>m/mm</td>
+<td>0…59</td>
+<td>分钟数</td>
+</tr>
+<tr>
+<td>s/ss</td>
+<td>0…59</td>
+<td>秒钟数</td>
+</tr>
+<tr>
+<td>S</td>
+<td>0…9</td>
+<td>十分之一秒</td>
+</tr>
+<tr>
+<td>SS</td>
+<td>0…99</td>
+<td>百分之一秒</td>
+</tr>
+<tr>
+<td>SSS</td>
+<td>0…999</td>
+<td>千分之一秒</td>
+</tr>
+<tr>
+<td>Z/ZZ</td>
+<td>+12:00</td>
+<td>时区</td>
+</tr>
+</tbody></table>
+<h3 id="3-任务定义"><a href="#3-任务定义" class="headerlink" title="3. 任务定义"></a>3. 任务定义</h3><p>Mermaid 甘特图中，每个任务隶属于一个分组，一个分组内可以定义多个任务，一张甘特图表中可以包含多个分组。</p>
+<p>甘特图中的任务定义格式形如：<code>&lt;任务名&gt; : [crit](关键), [active](正在), [done](已经完成), [任务ID], [前置任务], &lt;周期&gt;</code>，其中「任务名」和「周期」两项是必要项。</p>
+<h2 id="Markdown-饼图"><a href="#Markdown-饼图" class="headerlink" title="Markdown 饼图"></a>Markdown 饼图</h2><p>饼图的定义包含「标题」、「内容名称」和「内容权重」三项，其中「内容权重」会在渲染时，自动转换为百分比并显示在饼图上。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">pie title 宠物的选择</span><br><span class="line">    &quot;狗&quot; : 386</span><br><span class="line">    &quot;猫&quot; : 85</span><br><span class="line">    &quot;兔子&quot; : 15 </span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/02/02/nbHifKEqYec9Zhp.png"></p>
+<h2 id="Markdown-上下标"><a href="#Markdown-上下标" class="headerlink" title="Markdown 上下标"></a>Markdown 上下标</h2><p>在 Markdown 中，我们可以通过 双闭合<code>&lt;sub&gt;</code> 、<code>&lt;/sub&gt;</code>和 <code>&lt;sup&gt;</code> 、 <code>&lt;/sup&gt;</code> 标签来实现上标和下标。</p>
+<p>同时也可以用<code>$$</code>来描述上下标</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">标签描述：&lt;sup&gt;1&lt;/sup&gt;H&lt;sub&gt;2&lt;/sub&gt;O</span><br><span class="line">符号描述：<span class="built_in">$</span>1H<span class="built_in">_</span>2O<span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/02/02/MuG42ldrmnzDeVa.png"></p>
+<h2 id="Markdown-数学公式"><a href="#Markdown-数学公式" class="headerlink" title="Markdown 数学公式"></a>Markdown 数学公式</h2><p>Markdown 中的数学公式也分为「行中公式」和「独立公式」两种。</p>
+<p>行中公式使用两个单独的「美元符 <code>$</code>」表示。</p>
+<p><strong>示例：</strong><code>$1+1 = 2</code></p>
+<p>独立公式写法是将公式两边用两个连续的「美元符 <code>$$</code>」包裹，换行通过在行尾添加 <code>\\</code> 实现。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span></span><br><span class="line">x + y = 10 <span class="keyword">\\</span></span><br><span class="line">x - y = 6 <span class="keyword">\\</span></span><br><span class="line">2x = 16 <span class="keyword">\\</span></span><br><span class="line">x = 8 <span class="keyword">\\</span></span><br><span class="line">y = 2</span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-四则运算"><a href="#1-四则运算" class="headerlink" title="1. 四则运算"></a>1. 四则运算</h3><figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">加法符号：<span class="built_in">$</span>x+y=z<span class="built_in">$</span>  </span><br><span class="line">减法符号：<span class="built_in">$</span>x-y=z<span class="built_in">$</span>  </span><br><span class="line">加减符号：<span class="built_in">$</span>x <span class="keyword">\pm</span> y=z<span class="built_in">$</span>  </span><br><span class="line">减加符号：<span class="built_in">$</span>x <span class="keyword">\mp</span> y=z<span class="built_in">$</span>  </span><br><span class="line">叉乘符号：<span class="built_in">$</span>x <span class="keyword">\times</span> y=z<span class="built_in">$</span>  </span><br><span class="line">点乘符号：<span class="built_in">$</span>x <span class="keyword">\cdot</span> y=z<span class="built_in">$</span>  </span><br><span class="line">星乘符号：<span class="built_in">$</span>x <span class="keyword">\ast</span> y=z<span class="built_in">$</span>  </span><br><span class="line">除法符号：<span class="built_in">$</span>x <span class="keyword">\div</span> y=z<span class="built_in">$</span>  </span><br><span class="line">斜除符号：<span class="built_in">$</span>x/y=z<span class="built_in">$</span>  </span><br><span class="line">分式1：<span class="built_in">$</span><span class="keyword">\frac</span>&#123;x+y&#125;&#123;y+z&#125;<span class="built_in">$</span>   </span><br><span class="line">分式2：<span class="built_in">$</span>&#123;x+y&#125; <span class="keyword">\over</span> &#123;y+z&#125;<span class="built_in">$</span>  </span><br><span class="line">绝对值：<span class="built_in">$</span>|x+y|<span class="built_in">$</span>  </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-高级运算符"><a href="#2-高级运算符" class="headerlink" title="2. 高级运算符"></a>2. 高级运算符</h3><figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">平均数符号：<span class="built_in">$</span><span class="keyword">\overline</span>&#123;xyz&#125;<span class="built_in">$</span>   </span><br><span class="line">开二次方符号：<span class="built_in">$</span><span class="keyword">\sqrt</span> x<span class="built_in">$</span>       </span><br><span class="line">开方符号：<span class="built_in">$</span><span class="keyword">\sqrt</span>[3]&#123;x+y&#125;<span class="built_in">$</span>   </span><br><span class="line">对数符号：<span class="built_in">$</span><span class="keyword">\log</span>(x)<span class="built_in">$</span>  </span><br><span class="line">极限符号：<span class="built_in">$</span><span class="keyword">\lim</span><span class="built_in">^</span>&#123;x <span class="keyword">\to</span> <span class="keyword">\infty</span>&#125;<span class="built_in">_</span>&#123;y <span class="keyword">\to</span> 0&#125;&#123;<span class="keyword">\frac</span>&#123;x&#125;&#123;y&#125;&#125;<span class="built_in">$</span>  </span><br><span class="line">极限符号：<span class="built_in">$</span><span class="keyword">\displaystyle</span> <span class="keyword">\lim</span><span class="built_in">^</span>&#123;x <span class="keyword">\to</span> <span class="keyword">\infty</span>&#125;<span class="built_in">_</span>&#123;y <span class="keyword">\to</span> 0&#125;&#123;<span class="keyword">\frac</span>&#123;x&#125;&#123;y&#125;&#125;<span class="built_in">$</span>  </span><br><span class="line">求和符号：<span class="built_in">$</span><span class="keyword">\sum</span><span class="built_in">^</span>&#123;x <span class="keyword">\to</span> <span class="keyword">\infty</span>&#125;<span class="built_in">_</span>&#123;y <span class="keyword">\to</span> 0&#125;&#123;<span class="keyword">\frac</span>&#123;x&#125;&#123;y&#125;&#125;<span class="built_in">$</span>  </span><br><span class="line">求和符号：<span class="built_in">$</span><span class="keyword">\displaystyle</span> <span class="keyword">\sum</span><span class="built_in">^</span>&#123;x <span class="keyword">\to</span> <span class="keyword">\infty</span>&#125;<span class="built_in">_</span>&#123;y <span class="keyword">\to</span> 0&#125;&#123;<span class="keyword">\frac</span>&#123;x&#125;&#123;y&#125;&#125;<span class="built_in">$</span>  </span><br><span class="line">积分符号：<span class="built_in">$</span><span class="keyword">\int</span><span class="built_in">^</span>&#123;<span class="keyword">\infty</span>&#125;<span class="built_in">_</span>&#123;0&#125;&#123;xdx&#125;<span class="built_in">$</span>  </span><br><span class="line">积分符号：<span class="built_in">$</span><span class="keyword">\displaystyle</span> <span class="keyword">\int</span><span class="built_in">^</span>&#123;<span class="keyword">\infty</span>&#125;<span class="built_in">_</span>&#123;0&#125;&#123;xdx&#125;<span class="built_in">$</span> </span><br><span class="line">微分符号：<span class="built_in">$</span><span class="keyword">\frac</span>&#123;<span class="keyword">\partial</span> x&#125;&#123;<span class="keyword">\partial</span> y&#125;<span class="built_in">$</span>  </span><br><span class="line">矩阵符号：<span class="built_in">$</span><span class="keyword">\left</span>[ <span class="keyword">\begin</span>&#123;matrix&#125; <span class="built_in">&amp;</span>1 <span class="built_in">&amp;</span>2 <span class="built_in">&amp;</span><span class="keyword">\cdots</span> <span class="built_in">&amp;</span>4 <span class="built_in">&amp;</span>5 <span class="built_in">&amp;</span>6 <span class="built_in">&amp;</span><span class="keyword">\cdots</span> <span class="built_in">&amp;</span>8<span class="keyword">\\</span> <span class="built_in">&amp;</span><span class="keyword">\vdots</span> <span class="built_in">&amp;</span><span class="keyword">\ddots</span> <span class="built_in">&amp;</span><span class="keyword">\cdots</span> <span class="built_in">&amp;</span>13 <span class="built_in">&amp;</span>14 <span class="built_in">&amp;</span>15 <span class="built_in">&amp;</span><span class="keyword">\cdots</span> <span class="built_in">&amp;</span>16<span class="keyword">\end</span>&#123;matrix&#125; <span class="keyword">\right</span>]<span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/02/02/xZyCOtFPAjGMIif.png"></p>
+<h3 id="3-希腊字母"><a href="#3-希腊字母" class="headerlink" title="3. 希腊字母"></a>3. 希腊字母</h3><p>在 Markdown 文档的公式中插入希腊字母的方法是，在美元符号包裹住的中间，直接插入 LaTeX 形式的希腊字母语法即可。</p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">阿尔法: <span class="built_in">$</span><span class="keyword">\Alpha</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\alpha</span><span class="built_in">$</span></span><br><span class="line">贝塔: <span class="built_in">$</span><span class="keyword">\Beta</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\beta</span><span class="built_in">$</span>  </span><br><span class="line">伽玛: <span class="built_in">$</span><span class="keyword">\Gamma</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\gamma</span><span class="built_in">$</span>  </span><br><span class="line">德尔塔: <span class="built_in">$</span><span class="keyword">\Delta</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\delta</span><span class="built_in">$</span>  </span><br><span class="line">艾普西龙: <span class="built_in">$</span><span class="keyword">\Epsilon</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\epsilon</span><span class="built_in">$</span>  </span><br><span class="line">捷塔: <span class="built_in">$</span><span class="keyword">\Zeta</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\zeta</span><span class="built_in">$</span>  </span><br><span class="line">依塔: <span class="built_in">$</span><span class="keyword">\Eta</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\eta</span><span class="built_in">$</span>  </span><br><span class="line">西塔: <span class="built_in">$</span><span class="keyword">\Theta</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\theta</span><span class="built_in">$</span>  </span><br><span class="line">艾欧塔: <span class="built_in">$</span><span class="keyword">\Iota</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\iota</span><span class="built_in">$</span>  </span><br><span class="line">喀帕: <span class="built_in">$</span><span class="keyword">\Kappa</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\kappa</span><span class="built_in">$</span>  </span><br><span class="line">拉姆达: <span class="built_in">$</span><span class="keyword">\Lambda</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\lambda</span><span class="built_in">$</span>  </span><br><span class="line">缪: <span class="built_in">$</span><span class="keyword">\Mu</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\mu</span><span class="built_in">$</span>  </span><br><span class="line">拗: <span class="built_in">$</span><span class="keyword">\Nu</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\nu</span><span class="built_in">$</span>  </span><br><span class="line">克西: <span class="built_in">$</span><span class="keyword">\Xi</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\xi</span><span class="built_in">$</span>  </span><br><span class="line">欧麦克轮: <span class="built_in">$</span><span class="keyword">\Omicron</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\omicron</span><span class="built_in">$</span>  </span><br><span class="line">派: <span class="built_in">$</span><span class="keyword">\Pi</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\pi</span><span class="built_in">$</span>  </span><br><span class="line">柔: <span class="built_in">$</span><span class="keyword">\Rho</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\rho</span><span class="built_in">$</span>  </span><br><span class="line">西格玛: <span class="built_in">$</span><span class="keyword">\Sigma</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\sigma</span><span class="built_in">$</span>  </span><br><span class="line">套: <span class="built_in">$</span><span class="keyword">\Tau</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\tau</span><span class="built_in">$</span>  </span><br><span class="line">宇普西龙: <span class="built_in">$</span><span class="keyword">\Upsilon</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\upsilon</span><span class="built_in">$</span>  </span><br><span class="line">发艾: <span class="built_in">$</span><span class="keyword">\Phi</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\phi</span><span class="built_in">$</span>  </span><br><span class="line">器: <span class="built_in">$</span><span class="keyword">\Chi</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\chi</span><span class="built_in">$</span>  </span><br><span class="line">普赛: <span class="built_in">$</span><span class="keyword">\Psi</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\psi</span><span class="built_in">$</span>  </span><br><span class="line">欧米伽: <span class="built_in">$</span><span class="keyword">\Omega</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\omega</span><span class="built_in">$</span>  </span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="C:/Users/Mr.tang/AppData/Roaming/Typora/typora-user-images/image-20220202214412263.png"></p>
+<h2 id="Markdown-脚注尾注"><a href="#Markdown-脚注尾注" class="headerlink" title="Markdown 脚注尾注"></a>Markdown 脚注尾注</h2><p>脚注和尾注都是对文章的补充说明。</p>
+<p>脚注通常与被注释内容出现在同一页，并位于该页面的最下方，一般用来解释专有名词、数据来源等。</p>
+<p>尾注通常出现在文章的最后一页，写在文章全部正文之后，一般用来列明引用的文章列表等。</p>
+<p>要增加脚注（尾注），首先需要在文章的适当位置增加引用的描述，形如：<code>[^引用ID]: 说明文字</code>。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">**《出师表》（节选）**</span><br><span class="line"></span><br><span class="line">先帝[<span class="built_in">^</span>注释1]创业[<span class="built_in">^</span>注释2]未半而中道[<span class="built_in">^</span>注释3]崩殂[<span class="built_in">^</span>注释4]，今[<span class="built_in">^</span>注释5]天下三分[<span class="built_in">^</span>注释6]，益州疲弊[<span class="built_in">^</span>注释7]，此[<span class="built_in">^</span>注释8]诚危急存亡之秋也。然[<span class="built_in">^</span>注释9]侍卫之臣不懈于内，忠志之士忘身[<span class="built_in">^</span>注释10]于外者，盖追先帝之殊遇[<span class="built_in">^</span>注释11]，欲报之于陛下也。诚[<span class="built_in">^</span>注释12]宜开张圣听[<span class="built_in">^</span>注释13]，以光[<span class="built_in">^</span>注释14]先帝遗德，恢弘[<span class="built_in">^</span>注释15]志士之气，不宜妄自菲薄[<span class="built_in">^</span>注释16]，引喻失义[<span class="built_in">^</span>注释17]，以塞忠谏之路也[<span class="built_in">^</span>注释18]。</span><br><span class="line"></span><br><span class="line">[<span class="built_in">^</span>注释1]: 先帝：指汉昭烈帝刘备。先，尊称死去的人。</span><br><span class="line">[<span class="built_in">^</span>注释2]: 创：开创，创立；业：统一天下的大业。</span><br><span class="line">[<span class="built_in">^</span>注释3]: 中道：中途。</span><br><span class="line">[<span class="built_in">^</span>注释4]: 崩殂（cú）：死。崩，古时指皇帝死亡。殂，死亡。</span><br><span class="line">[<span class="built_in">^</span>注释5]: 今：现在。</span><br><span class="line">[<span class="built_in">^</span>注释6]: 三分：天下分为孙权，曹操，刘备三大势力。</span><br><span class="line">[<span class="built_in">^</span>注释7]: 益州疲弊：弱，处境艰难；益州：汉代行政区域十三刺史部之一，包括今四川省和陕西省一带，这里指蜀汉。疲弊（pí bì）：人力缺乏，物力缺无，民生凋敝。</span><br><span class="line">[<span class="built_in">^</span>注释8]: 此：这；诚：的确，实在；之：的；秋：时，时候，这里指关键时期，一般多指不好的。</span><br><span class="line">[<span class="built_in">^</span>注释9]: 然：然而；侍：侍奉；卫：护卫；懈：松懈，懈怠；于：在；内：皇宫中。</span><br><span class="line">[<span class="built_in">^</span>注释10]: 忘身：舍身忘死，奋不顾身。</span><br><span class="line">[<span class="built_in">^</span>注释11]: 盖：原来；追：追念；殊遇：优待，厚遇。</span><br><span class="line">[<span class="built_in">^</span>注释12]: 诚：的确，确实；宜：应该。</span><br><span class="line">[<span class="built_in">^</span>注释13]: 开张圣听：扩大圣明的听闻，意思是要后主广泛地听取别人的意见；开张，扩大。</span><br><span class="line">[<span class="built_in">^</span>注释14]: 光：发扬光大，用作动词；遗德：留下的美德。</span><br><span class="line">[<span class="built_in">^</span>注释15]: 恢弘：发扬扩大，用作动词。恢，大。弘，大，宽，这里是动词，也做“恢宏”；气：志气。</span><br><span class="line">[<span class="built_in">^</span>注释16]: 妄自菲薄：过于看轻自己；妄：过分；菲薄：小看，轻视。</span><br><span class="line">[<span class="built_in">^</span>注释17]: 引喻失义：讲话不恰当。引喻：称引、譬喻；喻：比如；义：适宜、恰当。</span><br><span class="line">[<span class="built_in">^</span>注释18]: 以：以致（与以伤先帝之明的以用法相同：以致）；塞：阻塞；谏：劝谏</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/02/03/vJLwB9iA1VF8o3O.png"></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2022\01\14\MarkdownBasic\" rel="bookmark">MarkdownBasic</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2022\02\23\EuclideanAlgorithm\" rel="bookmark">EuclideanAlgorithm</a></div>
+    </li>
+  </ul>
+
+        <div class="reward-container">
+  <div>您的支持是我创作的最大动力</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Mr.Tang 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Mr.Tang 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Mr.Tang
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2022/02/03/MarkdownAdvance/" title="MarkdownAdvance">http://example.com/2022/02/03/MarkdownAdvance/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/%E4%BB%A3%E7%A0%81%E8%AF%AD%E6%B3%95/" rel="tag"># 代码语法</a>
+              <a href="/tags/Markdown/" rel="tag"># Markdown</a>
+              <a href="/tags/%E8%BF%9B%E9%98%B6/" rel="tag"># 进阶</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/14/MarkdownBasic/" rel="prev" title="MarkdownBasic">
+      <i class="fa fa-chevron-left"></i> MarkdownBasic
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/02/23/EuclideanAlgorithm/" rel="next" title="EuclideanAlgorithm">
+      EuclideanAlgorithm <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+  
+    <div>
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:22px;">-------------Ending-------------</div>
+    
+</div>
+    </div>
+  
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown-%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">Markdown 任务列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown-%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7"><span class="nav-number">2.</span> <span class="nav-text">Markdown 特殊符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown-%E8%B6%85%E9%93%BE%E6%8E%A5%E5%8F%8A%E5%9B%BE%E7%89%87"><span class="nav-number">3.</span> <span class="nav-text">Markdown 超链接及图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="nav-number">3.1.</span> <span class="nav-text">1. 超链接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E8%B6%85%E9%93%BE%E6%8E%A5%E7%BB%86%E8%8A%82%E5%A3%B0%E6%98%8E"><span class="nav-number">3.1.1.</span> <span class="nav-text">1.1 超链接细节声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E8%B6%85%E9%93%BE%E6%8E%A5%E7%BB%86%E8%8A%82%E5%85%A8%E5%B1%80%E5%A3%B0%E6%98%8E"><span class="nav-number">3.1.2.</span> <span class="nav-text">1.2 超链接细节全局声明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%9B%BE%E7%89%87"><span class="nav-number">3.2.</span> <span class="nav-text">2. 图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E5%9B%BE%E7%89%87%E7%9A%84%E8%A1%8C%E5%86%85%E5%AE%9A%E4%B9%89"><span class="nav-number">3.2.1.</span> <span class="nav-text">2.1 图片的行内定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E5%9B%BE%E7%89%87%E7%9A%84%E5%85%A8%E5%B1%80%E5%A3%B0%E6%98%8E"><span class="nav-number">3.2.2.</span> <span class="nav-text">2.2 图片的全局声明</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown-%E8%A1%A8%E6%A0%BC"><span class="nav-number">4.</span> <span class="nav-text">Markdown 表格</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">4.0.1.</span> <span class="nav-text"></span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown-%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="nav-number">5.</span> <span class="nav-text">Markdown 流程图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="nav-number">5.1.</span> <span class="nav-text">1. 基本流程图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%87%A0%E4%BD%95%E5%9B%BE%E5%BD%A2%E8%8A%82%E7%82%B9"><span class="nav-number">5.2.</span> <span class="nav-text">2. 几何图形节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%BF%9E%E6%8E%A5%E7%BA%BF"><span class="nav-number">5.3.</span> <span class="nav-text">3. 连接线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%A7%86%E5%9B%BE%E5%88%86%E7%BB%84"><span class="nav-number">5.4.</span> <span class="nav-text">4. 视图分组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E2%80%94%E2%80%94%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-number">5.5.</span> <span class="nav-text">5. 使用场景——冒泡排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown-%E6%97%B6%E5%BA%8F%E5%9B%BE"><span class="nav-number">6.</span> <span class="nav-text">Markdown 时序图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%97%B6%E5%BA%8F%E5%9B%BE"><span class="nav-number">6.1.</span> <span class="nav-text">1. 基本时序图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%BF%9E%E6%8E%A5%E7%BA%BF%E7%B1%BB%E5%9E%8B"><span class="nav-number">6.2.</span> <span class="nav-text">2. 连接线类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%B7%BB%E5%8A%A0%E7%AC%94%E8%AE%B0"><span class="nav-number">6.3.</span> <span class="nav-text">3. 添加笔记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%97%B6%E5%BA%8F%E5%9B%BE%E7%9A%84%E9%80%BB%E8%BE%91"><span class="nav-number">6.4.</span> <span class="nav-text">4. 时序图的逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-%E5%BE%AA%E7%8E%AF"><span class="nav-number">6.4.1.</span> <span class="nav-text">4.1 循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-%E9%80%89%E6%8B%A9"><span class="nav-number">6.4.2.</span> <span class="nav-text">4.2 选择</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown-%E7%B1%BB%E5%9B%BE"><span class="nav-number">7.</span> <span class="nav-text">Markdown 类图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%B1%BB%E6%88%90%E5%91%98%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">7.1.</span> <span class="nav-text">1. 类成员的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E9%80%9A%E8%BF%87%E5%86%92%E5%8F%B7%E8%AE%BE%E7%BD%AE%E7%B1%BB%E6%88%90%E5%91%98"><span class="nav-number">7.1.1.</span> <span class="nav-text">1.1 通过冒号设置类成员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E9%80%9A%E8%BF%87%E5%A4%A7%E6%8B%AC%E5%8F%B7%E8%AE%BE%E7%BD%AE%E7%B1%BB%E6%88%90%E5%91%98"><span class="nav-number">7.1.2.</span> <span class="nav-text">1.2 通过大括号设置类成员</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%B1%BB%E5%9B%BE%E7%9A%84%E7%B1%BB%E9%97%B4%E5%85%B3%E7%B3%BB"><span class="nav-number">7.2.</span> <span class="nav-text">2. 类图的类间关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%AE%9E%E4%BE%8B%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA%EF%BC%9A"><span class="nav-number">7.3.</span> <span class="nav-text">3. 实例数的表示：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%B1%BB%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-number">7.4.</span> <span class="nav-text">4. 类修饰符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown-%E7%8A%B6%E6%80%81%E5%9B%BE"><span class="nav-number">8.</span> <span class="nav-text">Markdown 状态图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%8A%B6%E6%80%81%E8%8A%82%E7%82%B9%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-number">8.1.</span> <span class="nav-text">1. 状态节点的声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%8A%B6%E6%80%81%E8%8A%82%E7%82%B9%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-number">8.2.</span> <span class="nav-text">2. 状态节点的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%8A%B6%E6%80%81%E8%8A%82%E7%82%B9%E7%9A%84%E5%B5%8C%E5%A5%97"><span class="nav-number">8.3.</span> <span class="nav-text">3. 状态节点的嵌套</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-%E5%B1%82%E7%BA%A7%E5%B5%8C%E5%A5%97"><span class="nav-number">8.3.1.</span> <span class="nav-text">3.1 层级嵌套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E7%BE%A4%E7%BB%84%E5%B5%8C%E5%A5%97"><span class="nav-number">8.3.2.</span> <span class="nav-text">3.2 群组嵌套</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%8A%B6%E6%80%81%E8%8A%82%E7%82%B9%E7%9A%84%E5%88%86%E6%94%AF"><span class="nav-number">8.4.</span> <span class="nav-text">4. 状态节点的分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E7%8A%B6%E6%80%81%E8%8A%82%E7%82%B9%E7%9A%84%E5%B9%B6%E8%A1%8C"><span class="nav-number">8.5.</span> <span class="nav-text">5. 状态节点的并行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E4%B8%BA%E7%8A%B6%E6%80%81%E5%9B%BE%E6%B7%BB%E5%8A%A0%E5%A4%87%E6%B3%A8"><span class="nav-number">8.6.</span> <span class="nav-text">6. 为状态图添加备注</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown-%E7%94%98%E7%89%B9%E5%9B%BE"><span class="nav-number">9.</span> <span class="nav-text">Markdown 甘特图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%94%98%E7%89%B9%E5%9B%BE"><span class="nav-number">9.1.</span> <span class="nav-text">1. 基本的甘特图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-dateFormat-%E5%B1%9E%E6%80%A7"><span class="nav-number">9.2.</span> <span class="nav-text">2. dateFormat 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BB%BB%E5%8A%A1%E5%AE%9A%E4%B9%89"><span class="nav-number">9.3.</span> <span class="nav-text">3. 任务定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown-%E9%A5%BC%E5%9B%BE"><span class="nav-number">10.</span> <span class="nav-text">Markdown 饼图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown-%E4%B8%8A%E4%B8%8B%E6%A0%87"><span class="nav-number">11.</span> <span class="nav-text">Markdown 上下标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F"><span class="nav-number">12.</span> <span class="nav-text">Markdown 数学公式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97"><span class="nav-number">12.1.</span> <span class="nav-text">1. 四则运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%AB%98%E7%BA%A7%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">12.2.</span> <span class="nav-text">2. 高级运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D"><span class="nav-number">12.3.</span> <span class="nav-text">3. 希腊字母</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown-%E8%84%9A%E6%B3%A8%E5%B0%BE%E6%B3%A8"><span class="nav-number">13.</span> <span class="nav-text">Markdown 脚注尾注</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Mr.Tang"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Mr.Tang</p>
+  <div class="site-description" itemprop="description">Nothing</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/C6H12O6Mix" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;C6H12O6Mix" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        <script
+  async
+  src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+></script>
+
+<div class="copyright">
+  
+  &copy; Wed Jan 12 2022 08:00:00 GMT+0800 (中国标准时间) – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Tang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">13k</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"gAme5wch2zHKQ6xaO6ssVh5R-gzGzoHsz","app_key":"8ShYNuzysFzYXaganHyWvA7q","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  <script src="//code.tidio.co/iknwua0wvith5zzyhfdv6kbtlbj1licd.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'gAme5wch2zHKQ6xaO6ssVh5R-gzGzoHsz',
+      appKey     : '8ShYNuzysFzYXaganHyWvA7q',
+      placeholder: "",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+  
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+
+ 
+
+  <script>
+    var OriginTitile = document.title;
+    var titleTime;
+    document.addEventListener("visibilitychange", function() {
+      if (document.hidden) {
+        document.title = "(つェ⊂)我藏好了哦~" + OriginTitile;
+        clearTimeout(titleTime);
+      } else {
+        document.title = "(*´∇｀*) 被你发现啦~" + OriginTitile;
+        titleTime = setTimeout(function() {
+          document.title = OriginTitile;
+        }, 2000);
+      }
+    });
+  </script>
+
+
+ 
+
+  <script async src="//code.tidio.co/iknwua0wvith5zzyhfdv6kbtlbj1licd.js"></script>
+
+
+ 
+
+</body>
+</html>

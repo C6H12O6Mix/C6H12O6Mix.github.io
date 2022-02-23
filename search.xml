@@ -1,6 +1,432 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>EuclideanAlgorithm</title>
+    <url>/2022/02/23/EuclideanAlgorithm/</url>
+    <content><![CDATA[<h2 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h2><h3 id="1-基础"><a href="#1-基础" class="headerlink" title="1. 基础"></a>1. 基础</h3><h4 id="1-1-欧几里得算法"><a href="#1-1-欧几里得算法" class="headerlink" title="1.1 欧几里得算法"></a>1.1 欧几里得算法</h4><p>(a, b) = (a - kb, b)，k $\epsilon$  $\Zeta$</p>
+<p>当 a &gt; b 时，令 k = $\lfloor {\frac{a}{b}} \rfloor$，我们得到 (a, b) = (a - b$\lfloor {\frac{a}{b}} \rfloor$, b) = (a mod b, b) = (b, a mod b)，知道 b = 0，此时 (a, 0) = a 。</p>
+<h4 id="1-2-欧几里得算法实现"><a href="#1-2-欧几里得算法实现" class="headerlink" title="1.2 欧几里得算法实现"></a>1.2 欧几里得算法实现</h4><figure class="highlight python"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># 欧几里得算法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gcd</span>(<span class="params">m, n</span>):</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> m</span><br><span class="line">    <span class="keyword">return</span> gcd(n, m % n)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-拓展"><a href="#2-拓展" class="headerlink" title="2. 拓展"></a>2. 拓展</h3><h4 id="2-1-拓展欧几里得算法"><a href="#2-1-拓展欧几里得算法" class="headerlink" title="2.1 拓展欧几里得算法"></a>2.1 拓展欧几里得算法</h4><p>欧几里得算法的递归核心为：(a, b) = (b, a mod b) = (b ,a - b$\lfloor {\frac{a}{b}} \rfloor$) ，根据此核心可以得出：</p>
+<p>存在 x, y, x’, y’，四个整数使得 ax + by = (a, b) 且 bx‘ + (a - b$\lfloor {\frac{a}{b}} \rfloor$)y’  =  (b ,a - b$\lfloor {\frac{a}{b}} \rfloor$)，整理得：a(x - y’) + b(y - (x’ - $\lfloor {\frac{a}{b}} \rfloor$y’)) = 0。要使此等式恒成立，于是：</p>
+<p>x = y‘ 且 有 y = x’ - $\lfloor {\frac{a}{b}} \rfloor$y’</p>
+<p>求解 x，y 可以通过递归运算，而边界条件为：当 b = 0 时，(a , 0) 对应 x = 1, y = 0 。</p>
+<h4 id="2-2-拓展欧几里得算法实现"><a href="#2-2-拓展欧几里得算法实现" class="headerlink" title="2.2 拓展欧几里得算法实现"></a>2.2 拓展欧几里得算法实现</h4><figure class="highlight python"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># 全局变量</span></span><br><span class="line">x = <span class="number">1</span></span><br><span class="line">y = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 拓展欧几里得算法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exgcd</span>(<span class="params">a, b</span>):</span></span><br><span class="line">    <span class="keyword">global</span> x</span><br><span class="line">    <span class="keyword">global</span> y</span><br><span class="line">    <span class="keyword">if</span> b == <span class="number">0</span>:</span><br><span class="line">        x = <span class="number">1</span></span><br><span class="line">        y = <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> a</span><br><span class="line">    re = exgcd(b, a % b)</span><br><span class="line">    temp = x</span><br><span class="line">    x = y</span><br><span class="line">    y = temp - a / b * y</span><br><span class="line">    <span class="keyword">return</span> re</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-拓展欧几里得算法实现丢番图方程"><a href="#2-3-拓展欧几里得算法实现丢番图方程" class="headerlink" title="2.3 拓展欧几里得算法实现丢番图方程"></a>2.3 拓展欧几里得算法实现丢番图方程</h4><p>丢番图方程 ax + by = c，系数 a, b, c 为任意整数。</p>
+<p>丢番图方程有解的充要条件为 c % gcd(a, b) == 0 。</p>
+<p>代码实现的话与拓展欧几里德算法基本相同， 不同的地方就是最后的结果 x 和 y 均要乘上倍数 c / gcd (a, b) 。</p>
+<h3 id="3-脑筋急转弯"><a href="#3-脑筋急转弯" class="headerlink" title="3. 脑筋急转弯"></a>3. 脑筋急转弯</h3><h4 id="3-1-问题"><a href="#3-1-问题" class="headerlink" title="3.1 问题"></a>3.1 问题</h4><p>在走廊上有n个带锁的门，从1到n一次编号。最初所有的门都是关着的。我们从门前一次经过n此，每一次都从1号门开始。在第i次经过时（i = 1，2．．．n）我们改变i的整数倍号锁的状态：也就是如果们是关着的，就打开它；如果门是打开的，就关上它。。在最后以此经过后，那些门是打开的？那些门是关上的？有多少打开的门？</p>
+<h4 id="3-2-代码实现"><a href="#3-2-代码实现" class="headerlink" title="3.2 代码实现"></a>3.2 代码实现</h4><figure class="highlight python"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lockDoor</span>():</span></span><br><span class="line">    N = <span class="number">100</span></span><br><span class="line">    <span class="comment"># True 表示门处于关闭状态</span></span><br><span class="line">    lst = [<span class="literal">True</span>] * N</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">        lst[i:: i + <span class="number">1</span>] = [<span class="keyword">not</span> n <span class="keyword">for</span> n <span class="keyword">in</span> lst[i:: i + <span class="number">1</span>]]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;若有 &#x27;</span> + <span class="built_in">str</span>(N) + <span class="string">&#x27; 扇门，则有 &#x27;</span> + <span class="built_in">str</span>(lst.count(<span class="literal">True</span>)) + <span class="string">&#x27; 扇门关闭&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>算法</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MarkdownAdvance</title>
+    <url>/2022/02/03/MarkdownAdvance/</url>
+    <content><![CDATA[<h2 id="Markdown-任务列表"><a href="#Markdown-任务列表" class="headerlink" title="Markdown 任务列表"></a>Markdown 任务列表</h2><p>在 Markdown 文件中，在 “ 无序列表 <code>-,+,*</code> “ 后面使用 <code>「中括号 []」</code> 声明复选框。在中括号中写入 <code>x</code> ，便可实现选中效果。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="params">####</span> 学生管理系统</span><br><span class="line">- [ ] ** 前端开发开发**</span><br><span class="line">  责任人：小甲</span><br><span class="line">- [ ] ** 服务端开发**</span><br><span class="line">  责任人：小乙</span><br><span class="line">- [ ] **数据库设计**  </span><br><span class="line">  责任人：小丙  </span><br><span class="line">  任务描述：搭建 Mysql 数据库环境；设计数据表；数据库设计满足三范式。  </span><br><span class="line">  预计完成时间 5 天</span><br><span class="line">  - [x] 搭建数据库环境</span><br><span class="line">  - [x] 整理数据表名、主要字段</span><br><span class="line">  - [x] 设计 E-R 图</span><br><span class="line">  - [x] 使数据表符合范式要求</span><br><span class="line">  - [ ] 应用到数据库中</span><br><span class="line">  - [ ] 整理此部分文档笔记</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/14/6VytTBK57zi1rlY.png"></p>
+<h2 id="Markdown-特殊符号"><a href="#Markdown-特殊符号" class="headerlink" title="Markdown 特殊符号"></a>Markdown 特殊符号</h2><p>在 Markdown 文件中，在特殊符号前面使用「反斜杠 <code>\</code>」，可以实现特殊符号转义，以便将特殊符号输出到文本中。</p>
+<p><strong>下表列出Markdown常见特殊符号：</strong></p>
+<img src="https://s2.loli.net/2022/01/14/qWahsJP6VoDUGvB.png" style="zoom:80%;" />
+
+
+
+
+
+<h2 id="Markdown-超链接及图片"><a href="#Markdown-超链接及图片" class="headerlink" title="Markdown 超链接及图片"></a>Markdown 超链接及图片</h2><p>在 Markdown 文件中，使用 「中括号 <code>[label]()</code>」 声明超链接。</p>
+<h3 id="1-超链接"><a href="#1-超链接" class="headerlink" title="1. 超链接"></a>1. 超链接</h3><h4 id="1-1-超链接细节声明"><a href="#1-1-超链接细节声明" class="headerlink" title="1.1 超链接细节声明"></a>1.1 超链接细节声明</h4><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="params">####</span> 声明超链接的细节</span><br><span class="line"></span><br><span class="line">点击下面的连接将跳转到[C6H12O6Mix](https://c6h12o6mix.github.io)首页</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/14/eJaAXL4QcVPgduS.png"></p>
+<h4 id="1-2-超链接细节全局声明"><a href="#1-2-超链接细节全局声明" class="headerlink" title="1.2 超链接细节全局声明"></a>1.2 超链接细节全局声明</h4><figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="params">####</span> 超链接细节全局声明</span><br><span class="line"><span class="params">#####</span> 方式一</span><br><span class="line">点击下面的连接将跳转到[C6H12O6Mix][blog<span class="built_in">_</span>index]首页</span><br><span class="line"></span><br><span class="line">[blog<span class="built_in">_</span>index]: https://c6h12o6mix.github.io</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/14/FN6AKktO2xLJyza.png"></p>
+<h3 id="2-图片"><a href="#2-图片" class="headerlink" title="2. 图片"></a>2. 图片</h3><h4 id="2-1-图片的行内定义"><a href="#2-1-图片的行内定义" class="headerlink" title="2.1 图片的行内定义"></a>2.1 图片的行内定义</h4><figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="params">####</span> 插入一张图片</span><br><span class="line"></span><br><span class="line">图片前的文字。</span><br><span class="line"></span><br><span class="line">![](链接)</span><br><span class="line"></span><br><span class="line">图片后的文字</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-图片的全局声明"><a href="#2-2-图片的全局声明" class="headerlink" title="2.2 图片的全局声明"></a>2.2 图片的全局声明</h4><figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="params">####</span> 使用全局声明方式插入图片</span><br><span class="line"></span><br><span class="line">![][img1]</span><br><span class="line">![][img2]</span><br><span class="line">![][img1]</span><br><span class="line">![][img2]</span><br><span class="line"></span><br><span class="line">[img1]: 链接</span><br><span class="line">[img2]: 链接</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="Markdown-表格"><a href="#Markdown-表格" class="headerlink" title="Markdown 表格"></a>Markdown 表格</h2><p>表格通常作为一种布局形式，用于结构化的数据展示。</p>
+<ol>
+<li><p>Markdown 表格包含三个部分：表头、分割线、数据。</p>
+<ul>
+<li><strong>表头</strong> 用来对列名对象进行描述，也就是通常所说的列名；</li>
+<li><strong>数据</strong> 用来展示每行的具体内容，数据是表格的核心；</li>
+<li><strong>分割线</strong> 用来区分表头和数据，也是 Markdown 中表格定义的最基本语法要求。</li>
+</ul>
+</li>
+<li><p>Markdown 表格由 「竖线 <code>|</code>」、「减号 <code>-</code>」、「冒号 <code>:</code>」三种符号组成。</p>
+<ul>
+<li><strong>竖线</strong> 用来定义列，每两个竖线之间为一个单元格元素；</li>
+<li><strong>减号</strong> 用来定义分割线，也就是分割表头和数据体；</li>
+<li><strong>冒号</strong> 配合减号使用，用于定义列数据的对齐属性。</li>
+</ul>
+<p><strong>示例：</strong></p>
+</li>
+</ol>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="params">####</span> 小学生课程表</span><br><span class="line"></span><br><span class="line">| |周一|周二|周三|周四|周五|</span><br><span class="line">|--:|---|---|---|---|---|</span><br><span class="line">|**1**|数学|英语|数学|语文|品德|</span><br><span class="line">|**2**|美术|数学|品德|数学|语文|</span><br><span class="line">|**3**|品德|品德|语文|体育|数学|</span><br><span class="line">|**4**|语文|音乐|体育|品德|美术|</span><br><span class="line">|||||||</span><br><span class="line">|**5**|数学|英语|语文|数学|语文|</span><br><span class="line">|**6**|品德|数学|美术|劳动|活动|</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id=""><a href="#" class="headerlink" title=""></a><img src="https://s2.loli.net/2022/01/15/BPNehmj3yQZXRqM.png" style="zoom:80%;" /></h4><h2 id="Markdown-流程图"><a href="#Markdown-流程图" class="headerlink" title="Markdown 流程图"></a>Markdown 流程图</h2><p>Markdown 的原生语法不支持绘制图形，但通过 Mermaid 扩展，我们可以将一些格式化的文字渲染成我们需要的图形。</p>
+<p><a href="https://mermaid-js.github.io/mermaid/#/">Mermaid</a> 是一个方便于 Markdown 文档撰写者通过文本方式生成图形的扩展工具。</p>
+<h3 id="1-基本流程图"><a href="#1-基本流程图" class="headerlink" title="1. 基本流程图"></a>1. 基本流程图</h3><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">graph TB</span><br><span class="line">    开始 --&gt; 结束</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/15/9V5wMQv3pamK21W.png"></p>
+<p><strong>注意事项：</strong></p>
+<p>若节点文本如下图显示不全</p>
+<p>可以通过快捷键’Ctrl’+’,’打开偏好设置-&gt;外观-&gt;打开相应的主题文件夹</p>
+<p>打开相应主题的’css’文件，例’github.css’，添加以下代码：</p>
+<figure class="highlight css"><figcaption><span>修改css代码</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.md-require-zoom-fix</span> foreignObject &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: unset;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>graph 支持的方向：</strong></p>
+<img src="https://s2.loli.net/2022/01/15/ehH1I3tmBJio45k.png" style="zoom:80%;" />
+
+
+
+<h3 id="2-几何图形节点"><a href="#2-几何图形节点" class="headerlink" title="2. 几何图形节点"></a>2. 几何图形节点</h3><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">graph TD</span><br><span class="line">    方形节点[节点显示文本]</span><br><span class="line">    圆角形节点(节点显示文本)</span><br><span class="line">    圆形节点((节点显示文本))</span><br><span class="line">    非对称形节点&gt;节点显示文本]</span><br><span class="line">    菱形节点&#123;节点显示文本&#125;</span><br><span class="line">    六角形节点&#123;&#123;节点显示文本&#125;&#125;</span><br><span class="line">    右倾平行四边形[/节点显示文本/]</span><br><span class="line">    左倾平行四边形[<span class="keyword">\节</span>点显示文本<span class="keyword">\]</span></span><br><span class="line">    正向梯形[/节点显示文本<span class="keyword">\]</span></span><br><span class="line">    反向梯形[<span class="keyword">\节</span>点显示文本/]</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<img src="https://s2.loli.net/2022/01/15/MtQTcJ7slX2Rob8.png" style="zoom:80%;" />
+
+
+
+<h3 id="3-连接线"><a href="#3-连接线" class="headerlink" title="3. 连接线"></a>3. 连接线</h3><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">graph LR</span><br><span class="line">	<span class="comment">%% 基本连接线</span></span><br><span class="line">    A --&gt; B -- 带文字连接线 --&gt; A</span><br><span class="line">    <span class="comment">%% 无向连接线</span></span><br><span class="line">    C --- D -- 带文字连接线 --- C</span><br><span class="line">    <span class="comment">%% 点状连接线</span></span><br><span class="line">    E -.- F -. 带文字连接线 -.- E</span><br><span class="line">    <span class="comment">%% 粗实线连接线</span></span><br><span class="line">    G ==&gt; H == 带文字连接线 ==&gt; G</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/15/Cuq5Xx9NB78o6DW.png"></p>
+<h3 id="4-视图分组"><a href="#4-视图分组" class="headerlink" title="4. 视图分组"></a>4. 视图分组</h3><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    c1--&gt;a2</span><br><span class="line">    subgraph 第一组</span><br><span class="line">    a1--&gt;a2</span><br><span class="line">    end</span><br><span class="line">    subgraph 第二组</span><br><span class="line">    b1--&gt;b2</span><br><span class="line">    end</span><br><span class="line">    subgraph 第三组</span><br><span class="line">    c1--&gt;c2</span><br><span class="line">    end</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/15/143dh6utHDFpYk8.png"></p>
+<h3 id="5-使用场景——冒泡排序"><a href="#5-使用场景——冒泡排序" class="headerlink" title="5. 使用场景——冒泡排序"></a>5. 使用场景——冒泡排序</h3><figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">graph LR</span><br><span class="line">	执行1[i = 1]</span><br><span class="line">  	执行2[j = 0]</span><br><span class="line">  	执行3[i ++]</span><br><span class="line">  	执行4[&quot;a = arr[j], b = arr[j + 1]&quot;]</span><br><span class="line">  	执行5[交换 a, b]</span><br><span class="line">  	执行6[j ++]</span><br><span class="line">	判断1[&quot;i &lt; n&quot;]</span><br><span class="line">	判断2[&quot;j &lt; n - i&quot;]</span><br><span class="line">  	判断3[&quot;a &gt; b&quot;]</span><br><span class="line">  	开始 --&gt; 执行1</span><br><span class="line">  	执行1 --&gt; 判断1</span><br><span class="line">  	判断1 --Y--&gt; 执行2</span><br><span class="line">  	执行2 --&gt; 判断2</span><br><span class="line">  	判断2 --Y--&gt; 执行4</span><br><span class="line">  	判断2 --N--&gt; 执行3</span><br><span class="line">  	执行3 --&gt; 判断1</span><br><span class="line">  	执行4 --&gt; 判断3</span><br><span class="line">  	判断3 --N--&gt; 判断2</span><br><span class="line">  	判断3 --Y--&gt; 执行5</span><br><span class="line">  	执行5 --&gt; 执行6</span><br><span class="line"> 	执行6 --&gt; 判断2</span><br><span class="line">  	判断1 --N--&gt; 结束</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/16/9Z5g7dcF1faOGql.png"></p>
+<h2 id="Markdown-时序图"><a href="#Markdown-时序图" class="headerlink" title="Markdown 时序图"></a>Markdown 时序图</h2><h3 id="1-基本时序图"><a href="#1-基本时序图" class="headerlink" title="1. 基本时序图"></a>1. 基本时序图</h3><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">sequenceDiagram</span><br><span class="line">    李雷 -&gt;&gt; 韩梅梅: Hi LiLei, How do you do?</span><br><span class="line">    韩梅梅 --&gt;&gt; 李雷: How do you do!</span><br><span class="line">    <span class="comment">%% 别名形式定义对象</span></span><br><span class="line">    participant l as 李雷</span><br><span class="line">    participant h as 韩梅梅</span><br><span class="line">    l -&gt;&gt; h: I&#x27;m fine and you?</span><br><span class="line">    h --&gt;&gt; l: Me too!</span><br><span class="line">    <span class="comment">%% 可以通过+/-号实现聚焦</span></span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/16/Ueto2Gb8d3qjA4T.png"></p>
+<h3 id="2-连接线类型"><a href="#2-连接线类型" class="headerlink" title="2. 连接线类型"></a>2. 连接线类型</h3><p><img src="https://s2.loli.net/2022/01/16/wQS94iAdJxkuzIo.png"></p>
+<h3 id="3-添加笔记"><a href="#3-添加笔记" class="headerlink" title="3. 添加笔记"></a>3. 添加笔记</h3><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">sequenceDiagram</span><br><span class="line">	Note over 李雷,韩梅梅: Lessson 1</span><br><span class="line">    李雷 -&gt;&gt; 韩梅梅: Hi Hanmeimei, How do you do?</span><br><span class="line">    Note right of 韩梅梅: Dialog</span><br><span class="line">    韩梅梅 -&gt;&gt; 李雷: How do you do!</span><br><span class="line">```</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/01/16/MTnW2JGEFvhtH5g.png"></p>
+<h3 id="4-时序图的逻辑"><a href="#4-时序图的逻辑" class="headerlink" title="4. 时序图的逻辑"></a>4. 时序图的逻辑</h3><h4 id="4-1-循环"><a href="#4-1-循环" class="headerlink" title="4.1 循环"></a>4.1 循环</h4><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">sequenceDiagram</span><br><span class="line">    李雷 -&gt; 韩梅梅: Hello Hanmeimei, how are you?</span><br><span class="line">    loop 不停地说</span><br><span class="line">        韩梅梅 --&gt; 李雷: Great!</span><br><span class="line">    end</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/16/J9PjVEpMCndK2bR.png"></p>
+<h4 id="4-2-选择"><a href="#4-2-选择" class="headerlink" title="4.2 选择"></a>4.2 选择</h4><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">sequenceDiagram</span><br><span class="line">	participant l as 李雷</span><br><span class="line">    participant h as 韩梅梅</span><br><span class="line">    l -&gt;&gt; h: Hello Hanmeimei, Do you like orange?</span><br><span class="line">    alt Yes</span><br><span class="line">    h --&gt;&gt; l: Yes, I do.</span><br><span class="line">    else No</span><br><span class="line">    h --&gt;&gt; l: No, I don&#x27;t.</span><br><span class="line">    else neutral</span><br><span class="line">    h --&gt;&gt; l: Just so so.</span><br><span class="line">    end</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/16/xJFrQGMPq2DvUhN.png"></p>
+<h2 id="Markdown-类图"><a href="#Markdown-类图" class="headerlink" title="Markdown 类图"></a>Markdown 类图</h2><p>类是类图中的核心组成，类的成员包括属性和方法，以及一些扩展信息。在类图中，一个类实例由三层组成：</p>
+<ul>
+<li>类名称，在类图的最顶端；</li>
+<li>类属性，在类图的中间层；</li>
+<li>类方法，在类图的最下层。</li>
+</ul>
+<p>成员的作用域作为可选项，定义是在成员的开头，有以下四种：</p>
+<ul>
+<li><code>+</code> Public</li>
+<li><code>-</code> Private</li>
+<li><code>#</code> Protected</li>
+<li><code>~</code> Package/Internal</li>
+</ul>
+<h3 id="1-类成员的定义"><a href="#1-类成员的定义" class="headerlink" title="1. 类成员的定义"></a>1. 类成员的定义</h3><h4 id="1-1-通过冒号设置类成员"><a href="#1-1-通过冒号设置类成员" class="headerlink" title="1.1 通过冒号设置类成员"></a>1.1 通过冒号设置类成员</h4><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">classDiagram</span><br><span class="line">  class 银行账户</span><br><span class="line">  银行账户: +String 户主</span><br><span class="line">  银行账户: +BigDecimal 余额</span><br><span class="line">  <span class="comment">%% ()存放成员函数参数</span></span><br><span class="line">  <span class="comment">%% ()后可以增加数据类型描述，可以设置返回值</span></span><br><span class="line">  银行账户: +存(数量) bool</span><br><span class="line">  银行账户: +取(数量) int</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意事项：</strong> 如果需要定义抽象方法或静态方法，则只需要在括号后添加*或$符号即可：</p>
+<p>抽象方法被标为斜体，静态方法被标注了下划线.</p>
+<hr>
+<p><img src="https://s2.loli.net/2022/01/16/FqT3uPgDYI7fA4o.png"></p>
+<h4 id="1-2-通过大括号设置类成员"><a href="#1-2-通过大括号设置类成员" class="headerlink" title="1.2 通过大括号设置类成员"></a>1.2 通过大括号设置类成员</h4><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">classDiagram</span><br><span class="line">  class 银行账户 &#123;</span><br><span class="line">    +String 户主</span><br><span class="line">    +BigDecimal 余额</span><br><span class="line">    +存(数量) bool</span><br><span class="line">    +取(数量) int</span><br><span class="line">  &#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/16/nX3FpheT1E4vLlP.png"></p>
+<h3 id="2-类图的类间关系"><a href="#2-类图的类间关系" class="headerlink" title="2. 类图的类间关系"></a>2. 类图的类间关系</h3><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">classDiagram</span><br><span class="line">  classA --|&gt; classB : 继承</span><br><span class="line">  classC --* classD : 组成</span><br><span class="line">  classE --o classF : 集合</span><br><span class="line">  classG --&gt; classH : 关联</span><br><span class="line">  classI -- classJ : 实线连接</span><br><span class="line">  classK ..&gt; classL : 依赖</span><br><span class="line">  classM ..|&gt; classN : 实现</span><br><span class="line">  classO .. classP : 虚线连接</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="C:/Users/Mr.tang/AppData/Roaming/Typora/typora-user-images/image-20220117093715932.png"></p>
+<h3 id="3-实例数的表示："><a href="#3-实例数的表示：" class="headerlink" title="3. 实例数的表示："></a>3. 实例数的表示：</h3><p>类图中的 multiplicity 或 cardinality 表示链接到另一类一个实例的一个类的实例数。例如，一家公司将有一个或多位员工，但每位员工只为一家公司工作。</p>
+<p> 不同的实例数表示包括:</p>
+<ul>
+<li><p><code>1</code>——仅有 1</p>
+</li>
+<li><p><code>0..1</code> ——0或者1</p>
+</li>
+<li><p><code>1..* 1</code>——或者更多</p>
+</li>
+</ul>
+<ul>
+<li><code>*</code>——若干</li>
+</ul>
+<ul>
+<li><p><code>n</code>——n {n&gt;1}</p>
+</li>
+<li><p><code>0..n</code>——0 到 n {n&gt;1}</p>
+</li>
+<li><p><code>1..n</code>——1 到 n {n&gt;1}</p>
+</li>
+</ul>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">classDiagram</span><br><span class="line">    顾客 &quot;1&quot; --&gt; &quot;*&quot; 票据</span><br><span class="line">    学生 &quot;1&quot; --&gt; &quot;1..*&quot; 课程</span><br><span class="line">    银河 --&gt; &quot;many&quot; 星星 : 包含</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/17/ZiVP9xKsnz2ypQL.png"></p>
+<h3 id="4-类修饰符"><a href="#4-类修饰符" class="headerlink" title="4. 类修饰符"></a>4. 类修饰符</h3><p> 类的类型有以下四种，以<code>&lt;&lt;</code>和<code>&gt;&gt;</code>括起来.</p>
+<ul>
+<li><code>&lt;&lt;Interface&gt;&gt;</code> 接口类</li>
+<li><code>&lt;&lt;abstract&gt;&gt;</code> 抽象类</li>
+<li><code>&lt;&lt;Service&gt;&gt;</code> 服务类</li>
+<li><code>&lt;&lt;enumeration&gt;&gt;</code> 枚举类</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">classDiagram</span><br><span class="line">class 形状 &#123;</span><br><span class="line">    &lt;&lt;interface&gt;&gt;</span><br><span class="line">    定点数</span><br><span class="line">    绘制()</span><br><span class="line">&#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/17/P5n6kAxVqI2CZbJ.png"></p>
+<h2 id="Markdown-状态图"><a href="#Markdown-状态图" class="headerlink" title="Markdown 状态图"></a>Markdown 状态图</h2><h3 id="1-状态节点的声明"><a href="#1-状态节点的声明" class="headerlink" title="1. 状态节点的声明"></a>1. 状态节点的声明</h3><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">stateDiagram</span><br><span class="line">	<span class="comment">%% 方式一</span></span><br><span class="line">    state &quot;状态1描述性文字&quot; as state1</span><br><span class="line">    <span class="comment">%% 方式二</span></span><br><span class="line">    state2: 状态2的文字描述</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/17/O2rt86EPi3S7se9.png"></p>
+<h3 id="2-状态节点的转换"><a href="#2-状态节点的转换" class="headerlink" title="2. 状态节点的转换"></a>2. 状态节点的转换</h3><p>状态节点的转换可以用单向箭头表示转换，并可以通过 <code>(行内容):label</code> 的形式，为转换添加描述文本。</p>
+<p>状态图中有两个特殊的状态节点：开始节点和结束节点。如果需要在状态图中显示开始或结束节点，可以通过 <code>[*]</code> 方式声明。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">stateDiagram</span><br><span class="line">	[*] --&gt; 状态1</span><br><span class="line">    状态1 --&gt; 状态2: 咻~</span><br><span class="line">    状态2 --&gt; [*]</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="C:/Users/Mr.tang/AppData/Roaming/Typora/typora-user-images/image-20220117104713858.png"></p>
+<h3 id="3-状态节点的嵌套"><a href="#3-状态节点的嵌套" class="headerlink" title="3. 状态节点的嵌套"></a>3. 状态节点的嵌套</h3><h4 id="3-1-层级嵌套"><a href="#3-1-层级嵌套" class="headerlink" title="3.1 层级嵌套"></a>3.1 层级嵌套</h4><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">stateDiagram</span><br><span class="line">    [*] --&gt; 第一层状态节点</span><br><span class="line"></span><br><span class="line">    state 第一层状态节点 &#123;</span><br><span class="line">        [*] --&gt; 第二层</span><br><span class="line"></span><br><span class="line">        state 第二层 &#123;</span><br><span class="line">            [*] --&gt; 第二层</span><br><span class="line">            第二层 --&gt; 第三层</span><br><span class="line"></span><br><span class="line">            state 第三层 &#123;</span><br><span class="line">                [*] --&gt; 第三层</span><br><span class="line">                第三层 --&gt; [*]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/17/YEAuPZL8Rz2ODjy.png"></p>
+<h4 id="3-2-群组嵌套"><a href="#3-2-群组嵌套" class="headerlink" title="3.2 群组嵌套"></a>3.2 群组嵌套</h4><p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">stateDiagram</span><br><span class="line">    [*] --&gt; 第一层</span><br><span class="line">    第一层 --&gt; 第二层</span><br><span class="line">    第一层 --&gt; 第三层</span><br><span class="line"></span><br><span class="line">    state 第一层 &#123;</span><br><span class="line">        [*] --&gt; 第一层子节点</span><br><span class="line">        第一层子节点 --&gt; [*]</span><br><span class="line">    &#125;</span><br><span class="line">    state 第二层 &#123;</span><br><span class="line">        [*] --&gt; 第二层子节点</span><br><span class="line">        第二层子节点 --&gt; [*]</span><br><span class="line">    &#125;</span><br><span class="line">    state 第三层 &#123;</span><br><span class="line">        [*] --&gt; 第三层子节点</span><br><span class="line">        第三层子节点 --&gt; [*]</span><br><span class="line">    &#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/17/B2YvX57zfbPoJtu.png"></p>
+<h3 id="4-状态节点的分支"><a href="#4-状态节点的分支" class="headerlink" title="4. 状态节点的分支"></a>4. 状态节点的分支</h3><p>使用 <code>&lt;&lt;fork&gt;&gt;</code> 描述分支，使用 <code>&lt;&lt;join&gt;&gt;</code> 描述聚合</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">stateDiagram</span><br><span class="line">    state 分支 &lt;&lt;fork&gt;&gt;</span><br><span class="line">      [*] --&gt; 分支</span><br><span class="line">      分支 --&gt; 分支2</span><br><span class="line">      分支 --&gt; 分支3</span><br><span class="line"></span><br><span class="line">      state 合并 &lt;&lt;join&gt;&gt;</span><br><span class="line">      分支2 --&gt; 合并</span><br><span class="line">      分支3 --&gt; 合并</span><br><span class="line">      合并 --&gt; 状态4</span><br><span class="line">      状态4 --&gt; [*]</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/17/V9pM8NSRFIWOw46.png"></p>
+<h3 id="5-状态节点的并行"><a href="#5-状态节点的并行" class="headerlink" title="5. 状态节点的并行"></a>5. 状态节点的并行</h3><p>对于一些同步完成的状态转换，我们可以用 <code>--</code> 符号声明并行效果</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">stateDiagram</span><br><span class="line">        [*] --&gt; 激活状态</span><br><span class="line"></span><br><span class="line">        state 激活状态 &#123;</span><br><span class="line">            [*] --&gt; NumLock关</span><br><span class="line">            NumLock关 --&gt; NumLock开 : 按下 NumLock 键</span><br><span class="line">            NumLock开 --&gt; NumLock关 : 按下 NumLock 键</span><br><span class="line">            --</span><br><span class="line">            [*] --&gt; CapsLock关</span><br><span class="line">            CapsLock关 --&gt; CapsLock开 : 按下 CapsLock 键</span><br><span class="line">            CapsLock开 --&gt; CapsLock关 : 按下 CapsLock 键</span><br><span class="line">            --</span><br><span class="line">            [*] --&gt; ScrollLock关</span><br><span class="line">            ScrollLock关 --&gt; ScrollLock开 : 按下 ScrollLock 键</span><br><span class="line">            ScrollLock开 --&gt; ScrollLock关 : 按下 ScrollLock 键</span><br><span class="line">        &#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/17/umDc7hoen3tkJOx.png"></p>
+<h3 id="6-为状态图添加备注"><a href="#6-为状态图添加备注" class="headerlink" title="6. 为状态图添加备注"></a>6. 为状态图添加备注</h3><p>在 Mermaid 语法中，使用 <code>note &lt;right|left&gt; of &lt;state ID&gt; 备注内容 end notes</code> 的方式，将备注添加到状态节点两侧</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">stateDiagram</span><br><span class="line">        状态1 : 描述将出现在右侧</span><br><span class="line">        note right of 状态1</span><br><span class="line">            这里添加描述内容</span><br><span class="line">        end note</span><br><span class="line">        状态1 --&gt; 状态2</span><br><span class="line">        note left of 状态2 : 在节点左侧添加描述</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/01/19/DUe9dcg216XlKCI.png"></p>
+<h2 id="Markdown-甘特图"><a href="#Markdown-甘特图" class="headerlink" title="Markdown 甘特图"></a>Markdown 甘特图</h2><p>甘特图一般由「标题」、「日期格式约定」、「分组及任务」三部分组成。</p>
+<h3 id="1-基本的甘特图"><a href="#1-基本的甘特图" class="headerlink" title="1. 基本的甘特图"></a>1. 基本的甘特图</h3><figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">gantt</span><br><span class="line">    title 基础甘特图</span><br><span class="line">    dateFormat  YYYY-MM-DD</span><br><span class="line">    section 分区1</span><br><span class="line">    任务1-1           :a1, 2014-01-01, 30d</span><br><span class="line">    任务1-2           :after a1  , 20d</span><br><span class="line">    section 分区2</span><br><span class="line">    任务2-1      :2014-01-12  , 12d</span><br><span class="line">    任务2-2      : 24d</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/02/02/zVEKhnmgHW7jwsf.png"></p>
+<h3 id="2-dateFormat-属性"><a href="#2-dateFormat-属性" class="headerlink" title="2. dateFormat 属性"></a>2. dateFormat 属性</h3><hr>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>取值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>YYYY</td>
+<td>2014</td>
+<td>4位数年</td>
+</tr>
+<tr>
+<td>YY</td>
+<td>14</td>
+<td>2位数年</td>
+</tr>
+<tr>
+<td>Q</td>
+<td>1…4</td>
+<td>季度数</td>
+</tr>
+<tr>
+<td>M/MM</td>
+<td>1…12</td>
+<td>月份数</td>
+</tr>
+<tr>
+<td>MMM/MMMM</td>
+<td>Junuary…Dec</td>
+<td>月份名称</td>
+</tr>
+<tr>
+<td>D/DD</td>
+<td>1…31</td>
+<td>月中天数</td>
+</tr>
+<tr>
+<td>Do</td>
+<td>1st…31st</td>
+<td>月中第几天</td>
+</tr>
+<tr>
+<td>DDD/DDDD</td>
+<td>1…365</td>
+<td>年中天数</td>
+</tr>
+<tr>
+<td>X</td>
+<td>2314343121.213</td>
+<td>Unix时间戳（秒）</td>
+</tr>
+<tr>
+<td>x</td>
+<td>2314343121213</td>
+<td>Unix时间戳（毫秒）</td>
+</tr>
+<tr>
+<td>H/HH</td>
+<td>0…23</td>
+<td>24小时制小时数</td>
+</tr>
+<tr>
+<td>h/hh</td>
+<td>1…12</td>
+<td>12小时制小时数</td>
+</tr>
+<tr>
+<td>a/A</td>
+<td>am、pm</td>
+<td>上午、下午</td>
+</tr>
+<tr>
+<td>m/mm</td>
+<td>0…59</td>
+<td>分钟数</td>
+</tr>
+<tr>
+<td>s/ss</td>
+<td>0…59</td>
+<td>秒钟数</td>
+</tr>
+<tr>
+<td>S</td>
+<td>0…9</td>
+<td>十分之一秒</td>
+</tr>
+<tr>
+<td>SS</td>
+<td>0…99</td>
+<td>百分之一秒</td>
+</tr>
+<tr>
+<td>SSS</td>
+<td>0…999</td>
+<td>千分之一秒</td>
+</tr>
+<tr>
+<td>Z/ZZ</td>
+<td>+12:00</td>
+<td>时区</td>
+</tr>
+</tbody></table>
+<h3 id="3-任务定义"><a href="#3-任务定义" class="headerlink" title="3. 任务定义"></a>3. 任务定义</h3><p>Mermaid 甘特图中，每个任务隶属于一个分组，一个分组内可以定义多个任务，一张甘特图表中可以包含多个分组。</p>
+<p>甘特图中的任务定义格式形如：<code>&lt;任务名&gt; : [crit](关键), [active](正在), [done](已经完成), [任务ID], [前置任务], &lt;周期&gt;</code>，其中「任务名」和「周期」两项是必要项。</p>
+<h2 id="Markdown-饼图"><a href="#Markdown-饼图" class="headerlink" title="Markdown 饼图"></a>Markdown 饼图</h2><p>饼图的定义包含「标题」、「内容名称」和「内容权重」三项，其中「内容权重」会在渲染时，自动转换为百分比并显示在饼图上。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">pie title 宠物的选择</span><br><span class="line">    &quot;狗&quot; : 386</span><br><span class="line">    &quot;猫&quot; : 85</span><br><span class="line">    &quot;兔子&quot; : 15 </span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/02/02/nbHifKEqYec9Zhp.png"></p>
+<h2 id="Markdown-上下标"><a href="#Markdown-上下标" class="headerlink" title="Markdown 上下标"></a>Markdown 上下标</h2><p>在 Markdown 中，我们可以通过 双闭合<code>&lt;sub&gt;</code> 、<code>&lt;/sub&gt;</code>和 <code>&lt;sup&gt;</code> 、 <code>&lt;/sup&gt;</code> 标签来实现上标和下标。</p>
+<p>同时也可以用<code>$$</code>来描述上下标</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">标签描述：&lt;sup&gt;1&lt;/sup&gt;H&lt;sub&gt;2&lt;/sub&gt;O</span><br><span class="line">符号描述：<span class="built_in">$</span>1H<span class="built_in">_</span>2O<span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/02/02/MuG42ldrmnzDeVa.png"></p>
+<h2 id="Markdown-数学公式"><a href="#Markdown-数学公式" class="headerlink" title="Markdown 数学公式"></a>Markdown 数学公式</h2><p>Markdown 中的数学公式也分为「行中公式」和「独立公式」两种。</p>
+<p>行中公式使用两个单独的「美元符 <code>$</code>」表示。</p>
+<p><strong>示例：</strong><code>$1+1 = 2</code></p>
+<p>独立公式写法是将公式两边用两个连续的「美元符 <code>$$</code>」包裹，换行通过在行尾添加 <code>\\</code> 实现。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span></span><br><span class="line">x + y = 10 <span class="keyword">\\</span></span><br><span class="line">x - y = 6 <span class="keyword">\\</span></span><br><span class="line">2x = 16 <span class="keyword">\\</span></span><br><span class="line">x = 8 <span class="keyword">\\</span></span><br><span class="line">y = 2</span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-四则运算"><a href="#1-四则运算" class="headerlink" title="1. 四则运算"></a>1. 四则运算</h3><figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">加法符号：<span class="built_in">$</span>x+y=z<span class="built_in">$</span>  </span><br><span class="line">减法符号：<span class="built_in">$</span>x-y=z<span class="built_in">$</span>  </span><br><span class="line">加减符号：<span class="built_in">$</span>x <span class="keyword">\pm</span> y=z<span class="built_in">$</span>  </span><br><span class="line">减加符号：<span class="built_in">$</span>x <span class="keyword">\mp</span> y=z<span class="built_in">$</span>  </span><br><span class="line">叉乘符号：<span class="built_in">$</span>x <span class="keyword">\times</span> y=z<span class="built_in">$</span>  </span><br><span class="line">点乘符号：<span class="built_in">$</span>x <span class="keyword">\cdot</span> y=z<span class="built_in">$</span>  </span><br><span class="line">星乘符号：<span class="built_in">$</span>x <span class="keyword">\ast</span> y=z<span class="built_in">$</span>  </span><br><span class="line">除法符号：<span class="built_in">$</span>x <span class="keyword">\div</span> y=z<span class="built_in">$</span>  </span><br><span class="line">斜除符号：<span class="built_in">$</span>x/y=z<span class="built_in">$</span>  </span><br><span class="line">分式1：<span class="built_in">$</span><span class="keyword">\frac</span>&#123;x+y&#125;&#123;y+z&#125;<span class="built_in">$</span>   </span><br><span class="line">分式2：<span class="built_in">$</span>&#123;x+y&#125; <span class="keyword">\over</span> &#123;y+z&#125;<span class="built_in">$</span>  </span><br><span class="line">绝对值：<span class="built_in">$</span>|x+y|<span class="built_in">$</span>  </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-高级运算符"><a href="#2-高级运算符" class="headerlink" title="2. 高级运算符"></a>2. 高级运算符</h3><figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">平均数符号：<span class="built_in">$</span><span class="keyword">\overline</span>&#123;xyz&#125;<span class="built_in">$</span>   </span><br><span class="line">开二次方符号：<span class="built_in">$</span><span class="keyword">\sqrt</span> x<span class="built_in">$</span>       </span><br><span class="line">开方符号：<span class="built_in">$</span><span class="keyword">\sqrt</span>[3]&#123;x+y&#125;<span class="built_in">$</span>   </span><br><span class="line">对数符号：<span class="built_in">$</span><span class="keyword">\log</span>(x)<span class="built_in">$</span>  </span><br><span class="line">极限符号：<span class="built_in">$</span><span class="keyword">\lim</span><span class="built_in">^</span>&#123;x <span class="keyword">\to</span> <span class="keyword">\infty</span>&#125;<span class="built_in">_</span>&#123;y <span class="keyword">\to</span> 0&#125;&#123;<span class="keyword">\frac</span>&#123;x&#125;&#123;y&#125;&#125;<span class="built_in">$</span>  </span><br><span class="line">极限符号：<span class="built_in">$</span><span class="keyword">\displaystyle</span> <span class="keyword">\lim</span><span class="built_in">^</span>&#123;x <span class="keyword">\to</span> <span class="keyword">\infty</span>&#125;<span class="built_in">_</span>&#123;y <span class="keyword">\to</span> 0&#125;&#123;<span class="keyword">\frac</span>&#123;x&#125;&#123;y&#125;&#125;<span class="built_in">$</span>  </span><br><span class="line">求和符号：<span class="built_in">$</span><span class="keyword">\sum</span><span class="built_in">^</span>&#123;x <span class="keyword">\to</span> <span class="keyword">\infty</span>&#125;<span class="built_in">_</span>&#123;y <span class="keyword">\to</span> 0&#125;&#123;<span class="keyword">\frac</span>&#123;x&#125;&#123;y&#125;&#125;<span class="built_in">$</span>  </span><br><span class="line">求和符号：<span class="built_in">$</span><span class="keyword">\displaystyle</span> <span class="keyword">\sum</span><span class="built_in">^</span>&#123;x <span class="keyword">\to</span> <span class="keyword">\infty</span>&#125;<span class="built_in">_</span>&#123;y <span class="keyword">\to</span> 0&#125;&#123;<span class="keyword">\frac</span>&#123;x&#125;&#123;y&#125;&#125;<span class="built_in">$</span>  </span><br><span class="line">积分符号：<span class="built_in">$</span><span class="keyword">\int</span><span class="built_in">^</span>&#123;<span class="keyword">\infty</span>&#125;<span class="built_in">_</span>&#123;0&#125;&#123;xdx&#125;<span class="built_in">$</span>  </span><br><span class="line">积分符号：<span class="built_in">$</span><span class="keyword">\displaystyle</span> <span class="keyword">\int</span><span class="built_in">^</span>&#123;<span class="keyword">\infty</span>&#125;<span class="built_in">_</span>&#123;0&#125;&#123;xdx&#125;<span class="built_in">$</span> </span><br><span class="line">微分符号：<span class="built_in">$</span><span class="keyword">\frac</span>&#123;<span class="keyword">\partial</span> x&#125;&#123;<span class="keyword">\partial</span> y&#125;<span class="built_in">$</span>  </span><br><span class="line">矩阵符号：<span class="built_in">$</span><span class="keyword">\left</span>[ <span class="keyword">\begin</span>&#123;matrix&#125; <span class="built_in">&amp;</span>1 <span class="built_in">&amp;</span>2 <span class="built_in">&amp;</span><span class="keyword">\cdots</span> <span class="built_in">&amp;</span>4 <span class="built_in">&amp;</span>5 <span class="built_in">&amp;</span>6 <span class="built_in">&amp;</span><span class="keyword">\cdots</span> <span class="built_in">&amp;</span>8<span class="keyword">\\</span> <span class="built_in">&amp;</span><span class="keyword">\vdots</span> <span class="built_in">&amp;</span><span class="keyword">\ddots</span> <span class="built_in">&amp;</span><span class="keyword">\cdots</span> <span class="built_in">&amp;</span>13 <span class="built_in">&amp;</span>14 <span class="built_in">&amp;</span>15 <span class="built_in">&amp;</span><span class="keyword">\cdots</span> <span class="built_in">&amp;</span>16<span class="keyword">\end</span>&#123;matrix&#125; <span class="keyword">\right</span>]<span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="https://s2.loli.net/2022/02/02/xZyCOtFPAjGMIif.png"></p>
+<h3 id="3-希腊字母"><a href="#3-希腊字母" class="headerlink" title="3. 希腊字母"></a>3. 希腊字母</h3><p>在 Markdown 文档的公式中插入希腊字母的方法是，在美元符号包裹住的中间，直接插入 LaTeX 形式的希腊字母语法即可。</p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">阿尔法: <span class="built_in">$</span><span class="keyword">\Alpha</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\alpha</span><span class="built_in">$</span></span><br><span class="line">贝塔: <span class="built_in">$</span><span class="keyword">\Beta</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\beta</span><span class="built_in">$</span>  </span><br><span class="line">伽玛: <span class="built_in">$</span><span class="keyword">\Gamma</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\gamma</span><span class="built_in">$</span>  </span><br><span class="line">德尔塔: <span class="built_in">$</span><span class="keyword">\Delta</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\delta</span><span class="built_in">$</span>  </span><br><span class="line">艾普西龙: <span class="built_in">$</span><span class="keyword">\Epsilon</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\epsilon</span><span class="built_in">$</span>  </span><br><span class="line">捷塔: <span class="built_in">$</span><span class="keyword">\Zeta</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\zeta</span><span class="built_in">$</span>  </span><br><span class="line">依塔: <span class="built_in">$</span><span class="keyword">\Eta</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\eta</span><span class="built_in">$</span>  </span><br><span class="line">西塔: <span class="built_in">$</span><span class="keyword">\Theta</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\theta</span><span class="built_in">$</span>  </span><br><span class="line">艾欧塔: <span class="built_in">$</span><span class="keyword">\Iota</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\iota</span><span class="built_in">$</span>  </span><br><span class="line">喀帕: <span class="built_in">$</span><span class="keyword">\Kappa</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\kappa</span><span class="built_in">$</span>  </span><br><span class="line">拉姆达: <span class="built_in">$</span><span class="keyword">\Lambda</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\lambda</span><span class="built_in">$</span>  </span><br><span class="line">缪: <span class="built_in">$</span><span class="keyword">\Mu</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\mu</span><span class="built_in">$</span>  </span><br><span class="line">拗: <span class="built_in">$</span><span class="keyword">\Nu</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\nu</span><span class="built_in">$</span>  </span><br><span class="line">克西: <span class="built_in">$</span><span class="keyword">\Xi</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\xi</span><span class="built_in">$</span>  </span><br><span class="line">欧麦克轮: <span class="built_in">$</span><span class="keyword">\Omicron</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\omicron</span><span class="built_in">$</span>  </span><br><span class="line">派: <span class="built_in">$</span><span class="keyword">\Pi</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\pi</span><span class="built_in">$</span>  </span><br><span class="line">柔: <span class="built_in">$</span><span class="keyword">\Rho</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\rho</span><span class="built_in">$</span>  </span><br><span class="line">西格玛: <span class="built_in">$</span><span class="keyword">\Sigma</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\sigma</span><span class="built_in">$</span>  </span><br><span class="line">套: <span class="built_in">$</span><span class="keyword">\Tau</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\tau</span><span class="built_in">$</span>  </span><br><span class="line">宇普西龙: <span class="built_in">$</span><span class="keyword">\Upsilon</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\upsilon</span><span class="built_in">$</span>  </span><br><span class="line">发艾: <span class="built_in">$</span><span class="keyword">\Phi</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\phi</span><span class="built_in">$</span>  </span><br><span class="line">器: <span class="built_in">$</span><span class="keyword">\Chi</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\chi</span><span class="built_in">$</span>  </span><br><span class="line">普赛: <span class="built_in">$</span><span class="keyword">\Psi</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\psi</span><span class="built_in">$</span>  </span><br><span class="line">欧米伽: <span class="built_in">$</span><span class="keyword">\Omega</span><span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\omega</span><span class="built_in">$</span>  </span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="C:/Users/Mr.tang/AppData/Roaming/Typora/typora-user-images/image-20220202214412263.png"></p>
+<h2 id="Markdown-脚注尾注"><a href="#Markdown-脚注尾注" class="headerlink" title="Markdown 脚注尾注"></a>Markdown 脚注尾注</h2><p>脚注和尾注都是对文章的补充说明。</p>
+<p>脚注通常与被注释内容出现在同一页，并位于该页面的最下方，一般用来解释专有名词、数据来源等。</p>
+<p>尾注通常出现在文章的最后一页，写在文章全部正文之后，一般用来列明引用的文章列表等。</p>
+<p>要增加脚注（尾注），首先需要在文章的适当位置增加引用的描述，形如：<code>[^引用ID]: 说明文字</code>。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight tex"><figcaption><span><>代码块</span></figcaption><table><tr><td class="code"><pre><span class="line">**《出师表》（节选）**</span><br><span class="line"></span><br><span class="line">先帝[<span class="built_in">^</span>注释1]创业[<span class="built_in">^</span>注释2]未半而中道[<span class="built_in">^</span>注释3]崩殂[<span class="built_in">^</span>注释4]，今[<span class="built_in">^</span>注释5]天下三分[<span class="built_in">^</span>注释6]，益州疲弊[<span class="built_in">^</span>注释7]，此[<span class="built_in">^</span>注释8]诚危急存亡之秋也。然[<span class="built_in">^</span>注释9]侍卫之臣不懈于内，忠志之士忘身[<span class="built_in">^</span>注释10]于外者，盖追先帝之殊遇[<span class="built_in">^</span>注释11]，欲报之于陛下也。诚[<span class="built_in">^</span>注释12]宜开张圣听[<span class="built_in">^</span>注释13]，以光[<span class="built_in">^</span>注释14]先帝遗德，恢弘[<span class="built_in">^</span>注释15]志士之气，不宜妄自菲薄[<span class="built_in">^</span>注释16]，引喻失义[<span class="built_in">^</span>注释17]，以塞忠谏之路也[<span class="built_in">^</span>注释18]。</span><br><span class="line"></span><br><span class="line">[<span class="built_in">^</span>注释1]: 先帝：指汉昭烈帝刘备。先，尊称死去的人。</span><br><span class="line">[<span class="built_in">^</span>注释2]: 创：开创，创立；业：统一天下的大业。</span><br><span class="line">[<span class="built_in">^</span>注释3]: 中道：中途。</span><br><span class="line">[<span class="built_in">^</span>注释4]: 崩殂（cú）：死。崩，古时指皇帝死亡。殂，死亡。</span><br><span class="line">[<span class="built_in">^</span>注释5]: 今：现在。</span><br><span class="line">[<span class="built_in">^</span>注释6]: 三分：天下分为孙权，曹操，刘备三大势力。</span><br><span class="line">[<span class="built_in">^</span>注释7]: 益州疲弊：弱，处境艰难；益州：汉代行政区域十三刺史部之一，包括今四川省和陕西省一带，这里指蜀汉。疲弊（pí bì）：人力缺乏，物力缺无，民生凋敝。</span><br><span class="line">[<span class="built_in">^</span>注释8]: 此：这；诚：的确，实在；之：的；秋：时，时候，这里指关键时期，一般多指不好的。</span><br><span class="line">[<span class="built_in">^</span>注释9]: 然：然而；侍：侍奉；卫：护卫；懈：松懈，懈怠；于：在；内：皇宫中。</span><br><span class="line">[<span class="built_in">^</span>注释10]: 忘身：舍身忘死，奋不顾身。</span><br><span class="line">[<span class="built_in">^</span>注释11]: 盖：原来；追：追念；殊遇：优待，厚遇。</span><br><span class="line">[<span class="built_in">^</span>注释12]: 诚：的确，确实；宜：应该。</span><br><span class="line">[<span class="built_in">^</span>注释13]: 开张圣听：扩大圣明的听闻，意思是要后主广泛地听取别人的意见；开张，扩大。</span><br><span class="line">[<span class="built_in">^</span>注释14]: 光：发扬光大，用作动词；遗德：留下的美德。</span><br><span class="line">[<span class="built_in">^</span>注释15]: 恢弘：发扬扩大，用作动词。恢，大。弘，大，宽，这里是动词，也做“恢宏”；气：志气。</span><br><span class="line">[<span class="built_in">^</span>注释16]: 妄自菲薄：过于看轻自己；妄：过分；菲薄：小看，轻视。</span><br><span class="line">[<span class="built_in">^</span>注释17]: 引喻失义：讲话不恰当。引喻：称引、譬喻；喻：比如；义：适宜、恰当。</span><br><span class="line">[<span class="built_in">^</span>注释18]: 以：以致（与以伤先帝之明的以用法相同：以致）；塞：阻塞；谏：劝谏</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/02/03/vJLwB9iA1VF8o3O.png"></p>
+]]></content>
+      <categories>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>代码语法</tag>
+        <tag>Markdown</tag>
+        <tag>进阶</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MarkdownBasic</title>
     <url>/2022/01/14/MarkdownBasic/</url>
     <content><![CDATA[<h2 id="Markdown-分级标题"><a href="#Markdown-分级标题" class="headerlink" title="Markdown 分级标题"></a>Markdown 分级标题</h2><p>在<strong>标题文字</strong>行首增加连续的 “井号” (#) 及空格。1 个 “井号” 代表一级标题，2 个连续 “井号” 代表二级标题，以此类推，最多支持到 6 级标题</p>
